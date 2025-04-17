@@ -3,125 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pink Elite Studio - Premium Virtual Assistant for CEOs</title>
-  <meta name="description" content="Pink Elite Studio offers high-ticket CEOs premium virtual assistant services, including CRM management, scheduling, travel planning, and more.">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="description" content="Pink Elite Studio offers premium backend services for CEOs and business owners.">
+  <meta name="keywords" content="freelancer, backend services, business solutions, Pink Elite Studio">
+  <title>Pink Elite Studio - Premium Freelance Services</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    h2 {
+      color: #ff69b4;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .service-card {
+      background-color: #ffe6f0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .service-card h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .pricing-card {
+      background-color: #ffe6f0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .pricing-card h3 {
+      color: #ff69b4;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-card p {
+      font-size: 1rem;
+    }
+    .calendly-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #ff69b4;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+    .calendly-btn:hover {
+      background-color: #e55a9f;
+    }
+    footer {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans">
-  <!-- Header -->
-  <header class="bg-indigo-900 text-white py-6">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-3xl font-bold">Pink Elite Studio</h1>
-      <nav>
-        <a href="#services" class="mx-4 hover:text-indigo-300">Services</a>
-        <a href="#pricing" class="mx-4 hover:text-indigo-300">Pricing</a>
-        <a href="#contact" class="mx-4 hover:text-indigo-300">Contact</a>
-      </nav>
-    </div>
+<body>
+  <header>
+    <img src="images/profile.jpg" alt="Pink Elite Studio Owner" class="profile-img">
+    <h1>Pink Elite Studio</h1>
+    <p>Premium Backend Solutions for CEOs and Business Owners</p>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-indigo-700 text-white py-20 text-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold mb-4">Elevate Your Business with Elite Support</h2>
-      <p class="text-xl mb-8">Premium virtual assistant services for high-ticket CEOs. Focus on growth while we handle CRM, scheduling, travel, and more.</p>
-      <a href="#contact" class="bg-yellow-400 text-indigo-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500">Book a Consultation</a>
-    </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m the founder of Pink Elite Studio, a premium freelance service for CEOs, business owners, and Instagram influencers. Specializing in backend solutions like CRM management, scheduling, travel planning, and document handling, I bring exceptional organization and time management to help you focus on scaling your business. Let me handle the details while you lead with confidence—book a consultation to see how I can elevate your operations!
+    </p>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">CRM Management</h3>
-          <p>Streamline your client relationships with expert CRM setup, data entry, and automation (e.g., HubSpot, Salesforce).</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">Scheduling & Calls</h3>
-          <p>Manage your calendar and handle client calls with precision, ensuring seamless communication.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">Travel Planning</h3>
-          <p>Coordinate flights, hotels, and itineraries for business trips, optimized for efficiency and comfort.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">Document Handling</h3>
-          <p>Organize, draft, and manage contracts, proposals, and reports with confidentiality and accuracy.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">Project Management</h3>
-          <p>Oversee tasks and teams using tools like Asana or Trello to keep projects on track.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">Social Media Coordination</h3>
-          <p>Plan and schedule posts to maintain your brand’s online presence without the hassle.</p>
-        </div>
+  <section id="services">
+    <h2>Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>CRM Management</h3>
+        <p>Streamline your customer relationships with efficient CRM setup and maintenance.</p>
+      </div>
+      <div class="service-card">
+        <h3>Scheduling</h3>
+        <p>Organize your calendar, appointments, and meetings with precision.</p>
+      </div>
+      <div class="service-card">
+        <h3>Travel Planning</h3>
+        <p>Seamless travel itineraries tailored to your business needs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Document Handling</h3>
+        <p>Manage paperwork, contracts, and files with confidentiality and care.</p>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Section -->
-  <section id="pricing" class="bg-gray-200 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">Pricing Packages</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="text-xl font-semibold mb-4">Essential Support</h3>
-          <p class="text-2xl font-bold mb-4">$2,500/month</p>
-          <ul class="text-left mb-6">
-            <li>10 hours/week</li>
-            <li>Scheduling & Calls</li>
-            <li>Basic Document Handling</li>
-          </ul>
-          <a href="#contact" class="bg-indigo-700 text-white px-4 py-2 rounded-full hover:bg-indigo-800">Get Started</a>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="text-xl font-semibold mb-4">Elite Support</h3>
-          <p class="text-2xl font-bold mb-4">$4,500/month</p>
-          <ul class="text-left mb-6">
-            <li>20 hours/week</li>
-            <li>CRM Management</li>
-            <li>Travel Planning</li>
-            <li>Project Management</li>
-          </ul>
-          <a href="#contact" class="bg-indigo-700 text-white px-4 py-2 rounded-full hover:bg-indigo-800">Get Started</a>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="text-xl font-semibold mb-4">Premium Support</h3>
-          <p class="text-2xl font-bold mb-4">$7,500+/month</p>
-          <ul class="text-left mb-6">
-            <li>40 hours/week</li>
-            <li>All Services</li>
-            <li>Social Media Coordination</li>
-            <li>Priority Support</li>
-          </ul>
-          <a href="#contact" class="bg-indigo-700 text-white px-4 py-2 rounded-full hover:bg-indigo-800">Get Started</a>
-        </div>
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Starter Package</h3>
+        <p>$2,500/month</p>
+        <p>Basic backend support, including scheduling and document handling.</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Pro Package</h3>
+        <p>$4,500/month</p>
+        <p>Comprehensive support with CRM management and travel planning.</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Elite Package</h3>
+        <p>$7,500+/month</p>
+        <p>Full-suite services tailored for your business, plus priority support.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-12">Get in Touch</h2>
-      <p class="text-lg mb-8">Ready to streamline your workflow? Contact us for a free consultation.</p>
-      <div class="max-w-md mx-auto">
-        <input type="text" placeholder="Your Name" class="w-full p-3 mb-4 border rounded-lg">
-        <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 border rounded-lg">
-        <textarea placeholder="Your Message" class="w-full p-3 mb-4 border rounded-lg" rows="4"></textarea>
-        <button class="bg-indigo-700 text-white px-6 py-3 rounded-full hover:bg-indigo-800">Send Message</button>
-      </div>
-    </div>
+  <section id="contact">
+    <h2>Book a Consultation</h2>
+    <p>Ready to streamline your operations? Schedule a call with me today.</p>
+    <a href="https://calendly.com/pinkeliteva/30min" target="_blank" class="calendly-btn">Book Now</a>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-indigo-900 text-white py-6">
-    <div class="container mx-auto px-4 text-center">
-      <p>&copy; 2025 Pink Elite Studio. All rights reserved.</p>
-    </div>
+  <footer>
+    <p>&copy; 2025 Pink Elite Studio. All rights reserved.</p>
+    <p>Contact: pinkeliteva@gmail.com</p>
   </footer>
 </body>
 </html>

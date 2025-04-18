@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pink Elite Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #f06292;
+      --light-pink: #f8bbd0;
+      --bg: #fff0f5;
+      --text: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .section {
+      padding: 3rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .photo {
+      text-align: center;
+    }
+
+    .photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+    }
+
+    h2 {
+      color: var(--primary);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 2rem;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #ec407a;
+    }
+
+    footer {
+      background-color: var(--light-pink);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: white;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: var(--primary);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .spacer {
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#quickstart">QuickStart Kit</a>
+  </nav>
+
+  <div class="spacer"></div>
+
+  <header>
+    <h1>Pink Elite Studio</h1>
+    <p>Elevate Your Business Backend with Rhina Delgado</p>
+  </header>
+
+  <section class="section photo">
+    <img src="your-photo.jpg" alt="Rhina Delgado">
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Rhina Delgado — a former real estate pro turned Online Business Manager & Virtual Assistant. I help coaches and service providers clean up their backend systems, set up their CRMs, and streamline their operations so they can focus on growth, not chaos.
+    </p>
+    <p>
+      With over 10 years of experience in real estate, I’ve developed an eye for efficiency and a heart for helping others thrive. If you're ready to get organized, I'm your girl!
+    </p>
+  </section>
+
+  <section class="section" id="quickstart" style="text-align: center;">
+    <h2>Grab Your QuickStart Kit</h2>
+    <p>Get a free downloadable kit to start cleaning up your client process in minutes!</p>
+    <a href="YOUR-QUICKSTART-LINK" class="button" target="_blank">Download Now</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Pink Elite Studio · All Rights Reserved
+  </footer>
+
+</body>
+</html>

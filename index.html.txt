@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pink Elite Studio offers premium backend services for CEOs and business owners.">
+  <meta name="keywords" content="freelancer, backend services, business solutions, Pink Elite Studio">
+  <title>Pink Elite Studio - Premium Freelance Services</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    h2 {
+      color: #ff69b4;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .service-card {
+      background-color: #ffe6f0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .service-card h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .pricing-card {
+      background-color: #ffe6f0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .pricing-card h3 {
+      color: #ff69b4;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-card p {
+      font-size: 1rem;
+    }
+    .calendly-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #ff69b4;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+    .calendly-btn:hover {
+      background-color: #e55a9f;
+    }
+    footer {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/profile.jpg" alt="Pink Elite Studio Owner" class="profile-img">
+    <h1>Pink Elite Studio</h1>
+    <p>Premium Backend Solutions for CEOs and Business Owners</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m the founder of Pink Elite Studio, a premium freelance service for CEOs, business owners, and Instagram influencers. Specializing in backend solutions like CRM management, scheduling, travel planning, and document handling, I bring exceptional organization and time management to help you focus on scaling your business. Let me handle the details while you lead with confidence—book a consultation to see how I can elevate your operations!
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>CRM Management</h3>
+        <p>Streamline your customer relationships with efficient CRM setup and maintenance.</p>
+      </div>
+      <div class="service-card">
+        <h3>Scheduling</h3>
+        <p>Organize your calendar, appointments, and meetings with precision.</p>
+      </div>
+      <div class="service-card">
+        <h3>Travel Planning</h3>
+        <p>Seamless travel itineraries tailored to your business needs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Document Handling</h3>
+        <p>Manage paperwork, contracts, and files with confidentiality and care.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Starter Package</h3>
+        <p>$2,500/month</p>
+        <p>Basic backend support, including scheduling and document handling.</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Pro Package</h3>
+        <p>$4,500/month</p>
+        <p>Comprehensive support with CRM management and travel planning.</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Elite Package</h3>
+        <p>$7,500+/month</p>
+        <p>Full-suite services tailored for your business, plus priority support.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Book a Consultation</h2>
+    <p>Ready to streamline your operations? Schedule a call with me today.</p>
+    <a href="https://calendly.com/pinkelitestudio" target="_blank" class="calendly-btn">Book Now</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Pink Elite Studio. All rights reserved.</p>
+    <p>Contact: pinkeliteva@gmail.com</p>
+  </footer>
+</body>
+</html>

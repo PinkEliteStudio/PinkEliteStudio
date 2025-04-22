@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for a Strategy Call</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: 20px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .header { background-color: #fbcfe8; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+    .header img { max-width: 150px; }
+    .header h1 { color: #333; font-size: 24px; margin: 10px 0; }
+    .content { padding: 20px; line-height: 1.6; }
+    .content h2 { color: #d81b60; font-size: 20px; margin-bottom: 10px; }
+    .content label { display: block; margin: 10px 0 5px; font-weight: bold; }
+    .content input, .content select, .content textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    .content textarea { height: 100px; }
+    .cta-button { display: inline-block; padding: 12px 24px; background-color: #d81b60; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; }
+    .cta-button:hover { background-color: #b0003a; }
+    .footer { text-align: center; padding: 20px; font-size: 12px; color: #777; border-top: 1px solid #eee; }
+    .footer a { color: #d81b60; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://pinkwellnessroi.com/images/logo.png" alt="Pink Wellness ROI Logo">
+      <h1>Apply for a Strategy Call</h1>
+    </div>
+    <div class="content">
+      <h2>Scale Your Wellness Brand with Elite ROI Solutions</h2>
+      <p>Complete the form below to qualify for a free strategy call with Rhina Delgado. We’ll discuss your goals and create a plan to boost your ROI by 20–50%.</p>
+      <form name="strategy-call-application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="strategy-call-application">
+        <p hidden>
+          <label>Don’t fill this out: <input name="bot-field"></label>
+        </p>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" required>
+        <label for="revenue">Current Annual Revenue</label>
+        <select id="revenue" name="revenue" required>
+          <option value="">Select Range</option>
+          <option value="0-500k">$0–$500k</option>
+          <option value="500k-1m">$500k–$1M</option>
+          <option value="1m-5m">$1M–$5M</option>
+          <option value="5m+">$5M+</option>
+        </select>
+        <label for="pain-points">What’s Your Biggest Marketing Challenge?</label>
+        <textarea id="pain-points" name="pain-points" required placeholder="E.g., low ad ROI, inconsistent funnels, scaling issues"></textarea>
+        <label for="goals">What Are Your Revenue Goals for the Next 12 Months?</label>
+        <textarea id="goals" name="goals" required placeholder="E.g., double revenue, increase ROI by 30%, expand to new markets"></textarea>
+        <button type="submit" class="cta-button">Submit Application</button>
+      </form>
+    </div>
+    <div class="footer">
+      <p>Elite ROI Solutions | <a href="mailto:rhina@pinkwellnessroi.com">rhina@pinkwellnessroi.com</a> | <a href="https://www.linkedin.com/in/rhinadelgado/">Connect on LinkedIn</a></p>
+    </div>
+  </div>
+</body>
+</html>

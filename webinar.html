@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webinar: Stop Losing Revenue - Pink Wellness ROI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafb;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background-color: #fbcfe8;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 8px 8px 0 0;
+    }
+    .header img.logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .header h1 {
+      color: #1f2937;
+      font-size: 32px;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .header p {
+      color: #4b5563;
+      font-size: 18px;
+      margin: 10px 0 0;
+    }
+    .content {
+      padding: 40px;
+      text-align: center;
+    }
+    .content h2 {
+      color: #1f2937;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .countdown {
+      font-size: 20px;
+      color: #10b981;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+    .form-container {
+      background-color: #f3f4f6;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .form-container button {
+      background-color: #fbcfe8;
+      color: #ffffff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+    .form-container button:hover {
+      background-color: #f9a8d4;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #6b7280;
+      background-color: #f3f4f6;
+      border-radius: 0 0 8px 8px;
+    }
+    .footer a {
+      color: #10b981;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/logo.png" alt="Pink Wellness ROI Logo" class="logo" onerror="this.src='https://via.placeholder.com/100x100?text=Logo+Not+Found';">
+      <h1>Stop Losing Revenue: How to Target the Right Audience and Scale Your Wellness Business to 7 Figures</h1>
+      <p>Join Rhina Delgado to Learn How Strategic Ads and Email Funnels Can Boost Your Revenue by 20–50% in 90 Days</p>
+    </div>
+    <div class="content">
+      <h2 id="countdown">Webinar Starts in 3 Days!</h2>
+      <div class="form-container">
+        <form id="webinar-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="company" placeholder="Company Name" required>
+          <button type="submit">Reserve Your Spot Now!</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Pink Wellness ROI • <a href="mailto:contact@pinkwellnessroi.com">contact@pinkwellnessroi.com</a> • <a href="https://www.pinkwellnessroi.com">pinkwellnessroi.com</a></p>
+      <p>© 2025 Pink Wellness ROI. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    // Countdown Timer
+    const webinarDate = new Date('2025-04-29T14:00:00-04:00').getTime(); // Webinar date: April 29, 2025, 2 PM EDT
+    const countdownElement = document.getElementById('countdown');
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = webinarDate - now;
+      
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      
+      if (timeLeft > 0) {
+        countdownElement.textContent = `Webinar Starts in ${days} Days, ${hours} Hours, and ${minutes} Minutes!`;
+      } else {
+        countdownElement.textContent = 'The Webinar Has Started!';
+      }
+    }
+    
+    setInterval(updateCountdown, 60000); // Update every minute
+    updateCountdown(); // Initial call
+  </script>
+</body>
+</html>

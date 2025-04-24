@@ -1,0 +1,113 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High-Ticket Mastery: Skyrocketing Sales for Your Wellness Brand</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9fafb; }
+    .container { max-width: 800px; margin: 40px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+    .header { background-color: #fbcfe8; text-align: center; padding: 30px; }
+    .header img.logo { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 10px; }
+    .header h1 { color: #1f2937; font-size: 28px; margin: 0; }
+    .header p { color: #4b5563; font-size: 16px; margin: 10px 0; }
+    .content { padding: 40px; }
+    .content h2 { color: #1f2937; font-size: 24px; margin-bottom: 15px; }
+    .content p { color: #4b5563; font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+    .content ul { list-style-type: none; padding: 0; }
+    .content li { background-color: #f3f4f6; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+    .content li strong { color: #10b981; font-size: 18px; }
+    .content .wellness-img { width: 100%; max-width: 400px; height: auto; border-radius: 8px; margin: 20px auto; display: block; }
+    .cta-section { text-align: center; padding: 30px; background-color: #f9a8d4; border-radius: 0 0 8px 8px; }
+    .cta-section p { color: #ffffff; font-size: 18px; margin-bottom: 20px; }
+    .cta-button { display: inline-block; background-color: #ffffff; color: #f9a8d4; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; }
+    .footer { text-align: center; padding: 20px; font-size: 14px; color: #6b7280; background-color: #f3f4f6; }
+    .footer a { color: #10b981; text-decoration: none; }
+    @media print {
+      .container { box-shadow: none; }
+      .cta-section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/logo.png" alt="Pink Wellness ROI Logo" class="logo" onerror="this.src='https://via.placeholder.com/120x120?text=Logo+Not+Found';">
+      <h1>High-Ticket Mastery: Skyrocketing Sales for Your Wellness Brand</h1>
+      <p>5 Proven Strategies to Sell High-Ticket Wellness Offers with Confidence</p>
+      <p>By Rhina Delgado, Pink Wellness ROI</p>
+    </div>
+    <div class="content">
+      <h2>Why High-Ticket Sales Are the Future of Wellness Brands</h2>
+      <p>The wellness industry is thriving, with the global market projected to reach $7 trillion by 2025. High-ticket sales—premium products or services priced at $1,000 or more—are becoming a game-changer for brands looking to maximize revenue and impact. Unlike low-ticket items, high-ticket sales allow you to focus on fewer, high-value clients, build deeper relationships, and create transformative experiences that justify the price.</p>
+      <p>I’m Rhina Delgado, founder of Pink Wellness ROI, and I’ve helped wellness brands close high-ticket deals that have doubled their revenue using my signature <strong>Pink ROI Rocket</strong> method. In this guide, I’ll share 5 proven strategies inspired by top wellness brands to help you sell high-ticket offers with ease, plus a bonus tip to get started today.</p>
+      
+      <img src="images/wellness-retreat.jpg" alt="Luxury Wellness Retreat" class="wellness-img" onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found';">
+      
+      <h2>The Pink ROI Rocket Method: 5 High-Ticket Sales Strategies</h2>
+      <ul>
+        <li><strong>Strategy 1: Position Your Brand as a Premium Authority</strong><br>
+          High-ticket buyers invest in brands they trust. Establish credibility by showcasing expertise through case studies, client testimonials, and certifications. For example, brands like Headspace use expert-backed content to position themselves as leaders in mindfulness, justifying their premium pricing for corporate wellness programs.</li>
+        <li><strong>Strategy 2: Create an Irresistible Signature Offer</strong><br>
+          Bundle your services into a high-value package that solves a specific problem. Think of Peloton’s approach—they combine equipment, app subscriptions, and live classes into a premium ecosystem. Craft an offer like a “90-Day Wellness Transformation Program” that includes coaching, personalized plans, and exclusive resources, priced at $2,000+.</li>
+        <li><strong>Strategy 3: Leverage Personalized Sales Funnels</strong><br>
+          Use targeted email and SMS campaigns to nurture leads. Start with a free resource (like this guide!), then invite them to a webinar showcasing your high-ticket offer. Omnisend’s data shows segmented email campaigns have a 760% higher revenue potential—personalize your messaging to address the unique pain points of high-ticket buyers.</li>
+        <li><strong>Strategy 4: Host Exclusive Virtual Events</strong><br>
+          High-ticket buyers value experiences. Host a live virtual summit or workshop to demonstrate your expertise and build trust. MyFitnessPal educates its audience through free nutrition challenges, then upsells premium coaching. Use these events to pitch your high-ticket offer, driving a 20% conversion rate on average.</li>
+        <li><strong>Strategy 5: Partner with Niche Influencers for Credibility</strong><br>
+          Collaborate with micro-influencers (10k–50k followers) in the wellness space to promote your offer. Brands like Organifi work with health coaches to reach engaged audiences, boosting conversions by 15%. Choose influencers who align with your values to authentically endorse your high-ticket program.</li>
+      </ul>
+      
+      <h2>Bonus Tip: The 48-Hour High-Ticket Flash Sale</h2>
+      <p>Launch a 48-hour flash sale for your high-ticket offer this week! Promote it via Instagram Stories and a personalized email sequence, using a countdown timer to create urgency. My clients have seen a 25% sales spike with this tactic—perfect for testing your new high-ticket strategy.</p>
+    </div>
+    <div class="cta-section">
+      <p>Ready to Skyrocket Your Wellness Brand with High-Ticket Sales?</p>
+      <a href="https://calendly.com/pinkelitestudio" class="cta-button">Schedule Your Free Strategy Call Now</a>
+    </div>
+    <div class="footer">
+      <p>Pink Wellness ROI • <a href="mailto:contact@pinkwellnessroi.com">contact@pinkwellnessroi.com</a> • <a href="https://www.pinkwellnessroi.com">pinkwellnessroi.com</a></p>
+      <p>© 2025 Pink Wellness ROI. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -176,8 +137,8 @@
       <p class="text-base sm:text-lg text-gray-600 mb-6">Download “The E-commerce CEO’s Guide to Doubling Ad ROI” to unlock proven strategies for scaling your brand.</p>
       <div id="mc_embed_shell">
         <div id="mc_embed_signup">
-          <form action="/thank-you.html" method="POST" name="free-guide-form" data-netlify="true" class="validate" target="_self">
-            <input type="hidden" name="form-name" value="free-guide-form">
+          <form action="/thank-you.html" method="POST" name="Free Form Guide" data-netlify="true" class="validate" target="_self">
+            <input type="hidden" name="form-name" value="Free Form Guide">
             <div id="mc_embed_signup_scroll">
               <div class="mc-field-group">
                 <input type="email" name="EMAIL" class="required email input-field" id="mce-EMAIL" placeholder="Enter your email" required>
@@ -232,6 +193,7 @@
       <p class="text-base sm:text-lg text-gray-600 mb-6">Ready to scale your wellness brand? Contact us or apply for a consultation.</p>
       <p class="text-base sm:text-lg text-green-600 mb-4">Email: <a href="mailto:rhina@pinkwellnessroi.com" class="underline">rhina@pinkwellnessroi.com</a></p>
       <p class="text-base sm:text-lg text-green-600 mb-4">LinkedIn: <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="underline">Rhina Delgado</a></p>
+      <p class="text-base sm:text-lg text-green-600 mb-4">Schedule a Call: <a href="https://calendly.com/pinkelitestudio" target="_blank" class="underline">Book Now</a></p>
       <a href="#application-form" class="inline-block pink-btn px-6 py-3 rounded-lg">Apply for a Consultation</a>
     </div>
   </section>

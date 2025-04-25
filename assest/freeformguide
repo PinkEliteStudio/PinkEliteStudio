@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wellness CEO’s Blueprint to Skyrocketing Sales</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background-color: #f9fafb; 
+      color: #4b5563;
+    }
+    .container { 
+      max-width: 800px; 
+      margin: 20px; 
+      background-color: #ffffff; 
+      border-radius: 8px; 
+    }
+    .header { 
+      background-color: #fbcfe8; 
+      text-align: center; 
+      padding: 20px; 
+      border-radius: 8px 8px 0 0;
+    }
+    .header img.logo { 
+      width: 100px; 
+      height: 100px; 
+      border-radius: 50%; 
+      margin-bottom: 10px; 
+    }
+    .header h1 { 
+      color: #1f2937; 
+      font-size: 24px; 
+      margin: 0; 
+    }
+    .header p { 
+      font-size: 14px; 
+      margin: 5px 0; 
+    }
+    .content { 
+      padding: 20px; 
+    }
+    .content h2 { 
+      color: #1f2937; 
+      font-size: 20px; 
+      margin-bottom: 10px; 
+      page-break-after: avoid; 
+    }
+    .content p { 
+      font-size: 14px; 
+      line-height: 1.6; 
+      margin-bottom: 15px; 
+    }
+    .content ul { 
+      list-style-type: none; 
+      padding: 0; 
+    }
+    .content li { 
+      background-color: #f3f4f6; 
+      padding: 10px; 
+      margin-bottom: 8px; 
+      border-radius: 5px; 
+      page-break-inside: avoid; 
+    }
+    .content li strong { 
+      color: #10b981; 
+      font-size: 16px; 
+    }
+    .cta-section { 
+      text-align: center; 
+      padding: 20px; 
+      background-color: #f9a8d4; 
+      border-radius: 0 0 8px 8px; 
+      page-break-inside: avoid; 
+    }
+    .cta-section p { 
+      color: #ffffff; 
+      font-size: 16px; 
+      margin-bottom: 15px; 
+    }
+    .cta-button { 
+      display: inline-block; 
+      background-color: #ffffff; 
+      color: #f9a8d4; 
+      padding: 10px 20px; 
+      text-decoration: none; 
+      border-radius: 5px; 
+      font-weight: bold; 
+      font-size: 14px; 
+    }
+    .footer { 
+      text-align: center; 
+      padding: 15px; 
+      font-size: 12px; 
+      color: #6b7280; 
+      background-color: #f3f4f6; 
+      border-radius: 0 0 8px 8px; 
+    }
+    .footer a { 
+      color: #10b981; 
+      text-decoration: none; 
+    }
+    @media print {
+      body { 
+        margin: 0; 
+        background-color: #ffffff; 
+      }
+      .container { 
+        margin: 0; 
+        box-shadow: none; 
+        border-radius: 0; 
+      }
+      .header { 
+        padding: 15px; 
+      }
+      .header img.logo { 
+        width: 80px; 
+        height: 80px; 
+      }
+      .header h1 { 
+        font-size: 20px; 
+      }
+      .content { 
+        padding: 15px; 
+      }
+      .content h2 { 
+        font-size: 18px; 
+      }
+      .content p, .content li { 
+        font-size: 12px; 
+      }
+      .content li strong { 
+        font-size: 14px; 
+      }
+      .cta-section { 
+        padding: 15px; 
+      }
+      .cta-section p { 
+        font-size: 14px; 
+      }
+      .cta-button { 
+        font-size: 12px; 
+        border: 1px solid #f9a8d4; 
+      }
+      .footer { 
+        font-size: 10px; 
+      }
+      @page { 
+        margin: 1cm; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/logo.png" alt="Pink Wellness ROI Logo" class="logo" onerror="this.src='https://via.placeholder.com/100x100?text=Logo+Not+Found';">
+      <h1>The Wellness CEO’s Blueprint to Skyrocketing Sales</h1>
+      <p>5 Proven Strategies to Boost Your Wellness Brand’s Revenue</p>
+      <p>By Rhina Delgado, Pink Wellness ROI</p>
+    </div>
+    <div class="content">
+      <h2>Why Your Wellness Brand Needs These Strategies</h2>
+      <p>The wellness industry is booming, with global revenue projected to hit $7 trillion by 2025. As a wellness e-commerce CEO, you have a massive opportunity to increase your revenue—but only if you’re using the right strategies. Unlike generic tactics, the methods in this guide are tailored for high-ticket brands like yours, focusing on fewer, high-value sales to maximize your ROI.</p>
+      <p>I’m Rhina Delgado, founder of Pink Wellness ROI, and I’ve spent over 7 years helping wellness brands like yours achieve 20–50% sales growth using my signature <strong>Pink ROI Rocket</strong> method. In this guide, I’ll share 5 actionable strategies you can implement yourself to skyrocket your sales. If you’d prefer a hands-off approach, I also offer a VIP service where I handle everything for you—more on that later!</p>
+
+      <h2>The Pink ROI Rocket Method: 5 Strategies You Can Implement Today</h2>
+      <ul>
+        <li><strong>Strategy 1: Position Yourself as the Go-To Wellness Expert</strong><br>
+          High-value buyers choose brands they trust. Build credibility by sharing your expertise on social media, blogs, or podcasts. For example, create a weekly Instagram series showcasing your knowledge in wellness trends—Headspace does this with mindfulness tips, positioning themselves as a premium brand you can trust.</li>
+        <li><strong>Strategy 2: Craft a High-Value Offer Your Audience Can’t Resist</strong><br>
+          Package your products or services into a premium offer that solves a specific problem. For instance, Peloton bundles equipment, app access, and live classes into a high-value ecosystem. You could create a “30-Day Wellness Reset Kit” with your products, a guide, and a coaching call, priced at $1,500+.</li>
+        <li><strong>Strategy 3: Build a Simple Email Funnel to Nurture Leads</strong><br>
+          Use email to guide leads toward a purchase. Start with a welcome email (like the one that delivered this guide), then follow up with tips and a pitch for your high-value offer. Omnisend reports segmented email campaigns can boost revenue by 760%—try segmenting your list by interest (e.g., fitness vs. nutrition).</li>
+        <li><strong>Strategy 4: Host a Free Webinar to Showcase Your Expertise</strong><br>
+          High-ticket buyers love learning from experts. Host a free 30-minute webinar teaching one key strategy (e.g., “How to Double Your Ad ROI”), then pitch your offer at the end. MyFitnessPal uses free challenges to upsell premium coaching—you can expect a 15–20% conversion rate with this approach.</li>
+        <li><strong>Strategy 5: Collaborate with Niche Influencers to Grow Your Reach</strong><br>
+          Partner with micro-influencers (10k–50k followers) in the wellness niche to promote your brand. For example, Organifi works with health coaches to reach engaged audiences, increasing conversions by 15%. Choose influencers who share your values and can authentically endorse your offer.</li>
+      </ul>
+
+      <h2>Bonus Tip: Create Urgency with a Limited-Time Offer</h2>
+      <p>Launch a 48-hour flash sale for your high-value offer this week! Share it on Instagram Stories and email your list, using a countdown timer to drive urgency. My clients have seen a 25% sales spike with this tactic—it’s a great way to test your new strategies.</p>
+
+      <h2>Want Faster Results? Let Me Help!</h2>
+      <p>These strategies are designed for you to implement yourself, but if you’d rather save time and get faster results, I offer a <strong>VIP Done-For-You Package</strong>. I’ll handle everything—from setting up your campaigns to running your funnels—so you can focus on growing your business. Schedule a free strategy call to learn more!</p>
+    </div>
+    <div class="cta-section">
+      <p>Ready to Skyrocket Your Wellness Brand’s Sales?</p>
+      <a href="https://calendly.com/pinkelitestudio" class="cta-button">Schedule Your Free Strategy Call Now</a>
+    </div>
+    <div class="footer">
+      <p>Pink Wellness ROI • <a href="mailto:rhina@pinkwellnessroi.com">rhina@pinkwellnessroi.com</a> • <a href="https://www.pinkwellnessroi.com">pinkwellnessroi.com</a></p>
+      <p>© 2025 Pink Wellness ROI. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>

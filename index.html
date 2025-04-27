@@ -7,51 +7,26 @@
   <meta name="description" content="Pink Wellness ROI helps wellness e-commerce brands with $75k+ revenue skyrocket ROI through elite marketing strategies. Apply for a free consultation.">
   <meta name="keywords" content="e-commerce ROI strategies, high-ticket wellness marketing, wellness e-commerce, strategy consultation">
   <meta name="author" content="Rhina Delgado">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR-GA-ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-YOUR-GA-ID');
+    gtag('config', 'G-YOUR-GA-ID'); // Replace 'G-YOUR-GA-ID' with your actual Google Analytics ID
   </script>
   <style>
     body { scroll-behavior: smooth; }
     .hero-bg { background: linear-gradient(to right, #e6f3fa, #d1fae5); }
-    .input-field { transition: all 0.3s ease; font-size: 1rem; }
-    .input-field:focus { border-color: #10b981; }
-    .pink-btn { background-color: #f472b6; color: #ffffff; padding: 0.75rem 2rem; font-size: 1.125rem; font-weight: 600; border-radius: 0.5rem; cursor: pointer; transition: background-color 0.3s ease; }
-    .pink-btn:hover { background-color: #ec4899; }
+    .thank-you-message { display: none; text-align: center; margin-top: 1rem; }
+    .thank-you-message.show { display: block; }
     .logo img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
     .profile-photo img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto; display: block; }
-    #application-form { background: transparent !important; width: 100% !important; }
-    #application-form form { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
-    #application-form .form-group { width: 100%; max-width: 20rem; }
-    #application-form input, #application-form select, #application-form textarea { 
-      width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; outline: none; 
-    }
-    #application-form button { 
-      background-color: #f472b6; color: #ffffff; border: none; padding: 0.75rem 2rem; border-radius: 0.5rem; 
-      cursor: pointer; font-weight: 600; font-size: 1rem; 
-    }
-    #application-form button:hover { background-color: #ec4899; }
-    #mc_embed_signup { display: flex; justify-content: center; }
-    #mc_embed_signup_scroll { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-    #mc_embed_signup_scroll .mc-field-group { width: 100%; max-width: 20rem; }
-    #mc_embed_signup_scroll .mc-field-group input { 
-      width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; outline: none; 
-    }
-    .thank-you-message { display: none; text-align: center; margin-top: 1rem; }
     @media (min-width: 768px) { 
       .logo img { width: 120px; height: 120px; }
-      #application-form .form-group { max-width: 24rem; }
-      #mc_embed_signup_scroll .mc-field-group { max-width: 24rem; }
     }
     @media (max-width: 640px) { 
-      #application-form input, #application-form select, #application-form textarea { font-size: 0.9rem; }
-      #application-form button { padding: 0.5rem 1.5rem; }
-      #mc_embed_signup_scroll .mc-field-group input { font-size: 0.9rem; }
       .profile-photo img { width: 150px; height: 150px; }
     }
   </style>
@@ -59,10 +34,10 @@
 <body class="font-sans text-gray-800">
   <!-- Header -->
   <header class="bg-green-50 shadow sticky top-0 z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify Distrito de Lima-items-center">
       <div class="logo">
         <a href="https://www.pinkwellnessroi.com">
-          <img src="images/logo.png" alt="Pink Wellness ROI Logo" onerror="this.src='https://via.placeholder.com/120x120?text=Logo';">
+          <img src="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/logo.png" alt="Pink Wellness ROI Logo" onerror="this.src='https://via.placeholder.com/120x120?text=Logo';">
         </a>
       </div>
       <div class="flex items-center space-x-4 mt-4 sm:mt-0">
@@ -85,51 +60,50 @@
         <div class="mt-6">
           <h3 class="text-lg sm:text-xl font-semibold text-green-600 mb-4">Apply for a Free Consultation</h3>
           <p class="text-sm text-gray-500 mb-4 italic">For established businesses only</p>
-          <div id="application-form">
-            <form method="POST" id="strategy-call-form" name="strategy-call" data-netlify="true">
-              <input type="hidden" name="form-name" value="strategy-call">
-              <div class="form-group">
-                <input type="text" name="name" class="input-field" placeholder="Full Name" required>
-              </div>
-              <div class="form-group">
-                <input type="email" name="email" class="input-field" placeholder="Business Email" required>
-              </div>
-              <div class="form-group">
-                <input type="text" name="business_name" class="input-field" placeholder="Business Name" required>
-              </div>
-              <div class="form-group">
-                <select name="revenue" class="input-field" required>
-                  <option value="" disabled selected>Annual Revenue</option>
-                  <option value="75k-250k">$75k - $250k</option>
-                  <option value="250k-1m">$250k - $1M</option>
-                  <option value="1m+">$1M+</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <select name="niche" class="input-field" required>
-                  <option value="" disabled selected>Business Niche</option>
-                  <option value="supplements">Nutritional Supplements</option>
-                  <option value="fitness">Fitness Equipment</option>
-                  <option value="wellness">Other Wellness</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <textarea name="pain_point" class="input-field" placeholder="What’s your biggest marketing challenge?" rows="3" required></textarea>
-              </div>
-              <button type="submit" class="pink-btn">Submit Application</button>
-            </form>
-            <div id="consultation-thank-you" class="thank-you-message">
-              <h3 class="text-2xl font-bold text-green-800 mb-2">Thank You for Applying!</h3>
-              <p class="text-gray-600">We've received your application for a free consultation. Check your email (including spam/junk) for confirmation and next steps. Qualified applicants will receive a scheduling link within 48 hours.</p>
-              <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="inline-block mt-4 pink-btn px-6 py-3 rounded-lg">Connect on LinkedIn</a>
+          <form method="POST" id="strategy-call-form" name="strategy-call" data-netlify="true" class="flex flex-col gap-4 items-center">
+            <input type="hidden" name="form-name" value="strategy-call">
+            <div class="w-full max-w-md">
+              <input type="text" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-all" placeholder="Full Name" required>
             </div>
+            <div class="w-full max-w-md">
+              <input type="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-all" placeholder="Business Email" required>
+            </div>
+            <div class="w-full max-w-md">
+              <input type="text" name="business_name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-all" placeholder="Business Name" required>
+            </div>
+            <div class="w-full max-w-md">
+              <select name="revenue" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-all" required>
+                <option value="" disabled selected>Annual Revenue</option>
+                <option value="75k-250k">$75k - $250k</option>
+                <option value="250k-1m">$250k - $1M</option>
+                <option value="1m+">$1M+</option>
+              </select>
+            </div>
+            <div class="w-full max-w-md">
+              <select name="niche" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-all" required>
+                <option value="" disabled selected>Business Niche</option>
+                <option value="supplements">Nutritional Supplements</option>
+                <option value="fitness">Fitness Equipment</option>
+                <option value="wellness">Other Wellness</option>
+              </select>
+            </div>
+            <div class="w-full max-w-md">
+              <textarea name="pain_point" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition-all" placeholder="What’s your biggest marketing challenge?" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-300 font-semibold">Submit Application</button>
+          </form>
+          <div id="consultation-thank-you" class="thank-you-message">
+            <h3 class="text-2xl font-bold text-green-800 mb-2">Thank You for Applying!</h3>
+            <p class="text-gray-600">We've received your application for a free consultation. Check your email (including spam/junk) for confirmation and next steps. Qualified applicants will receive a scheduling link within 48 hours.</p>
+            <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="inline-block mt-4 bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-300">Connect on LinkedIn</a>
           </div>
         </div>
         <p class="text-sm text-gray-500 mt-4">Applications reviewed within 48 hours. Qualified applicants receive a consultation link.</p>
       </div>
       <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
         <video controls class="w-full max-w-xs h-auto rounded-lg shadow-lg" poster="https://images.unsplash.com/photo-1506126613408-eca07ce68773">
-          <source src="files/video.mp4" type="video/mp4">
+          <!-- Note: Replace with the actual path to your video file if available -->
+          <source src="https://via.placeholder.com/300x200.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -140,28 +114,20 @@
   <section class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-2xl sm:text-3xl font-bold text-green-800 mb-4">Free Guide for Wellness CEOs</h2>
-      <p class="text-base sm:text-lg text-gray-600 mb-6">Download “The E-commerce CEO’s Guide to Doubling Ad ROI” to unlock proven strategies for scaling your brand.</p>
-      <div id="mc_embed_shell">
-        <div id="mc_embed_signup">
-          <form method="POST" name="Free Form Guide" data-netlify="true" class="validate" target="_self">
-            <input type="hidden" name="form-name" value="Free Form Guide">
-            <div id="mc_embed_signup_scroll">
-              <div class="mc-field-group">
-                <input type="email" name="EMAIL" class="required email input-field" id="mce-EMAIL" placeholder="Enter your email" required>
-              </div>
-              <div class="clear">
-                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="pink-btn" value="Download Now">
-              </div>
-            </div>
-          </form>
-          <div id="guide-thank-you" class="thank-you-message">
-            <h3 class="text-2xl font-bold text-green-800 mb-2">Thank You for Downloading!</h3>
-            <p class="text-gray-600">We've sent "The E-commerce CEO's Guide to Doubling Ad ROI" to your email. Check your inbox (including spam/junk) for the download link.</p>
-            <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="inline-block mt-4 pink-btn px-6 py-3 rounded-lg">Connect on LinkedIn</a>
-          </div>
+      <p class="text-base sm:text-lg text-gray-600 mb-6">Download <strong>“The E-commerce CEO’s Guide to Doubling Ad ROI”</strong> to unlock proven strategies for scaling your brand.</p>
+      <form method="POST" name="Free Form Guide" data-netlify="true" class="flex flex-col gap-4 items-center">
+        <input type="hidden" name="form-name" value="Free Form Guide">
+        <div class="w-full max-w-md">
+          <input type="email" name="EMAIL" id="email-guide" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-pink-500 focus:border-pink-500 transition-all" placeholder="Enter your email">
         </div>
+        <button type="submit" class="bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-300 font-semibold">Download Now</button>
+      </form>
+      <div id="guide-thank-you" class="thank-you-message">
+        <h3 class="text-2xl font-bold text-green-800 mb-2">Thank You for Downloading!</h3>
+        <p class="text-gray-600 mb-4">We've sent <strong>"The E-commerce CEO's Guide to Doubling Ad ROI"</strong> to your email. Check your inbox (including spam/junk) for the download link.</p>
+        <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="inline-block bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-300">Connect on LinkedIn</a>
+        <p class="text-sm text-gray-500 mt-4">Having trouble? <a href="files/ecommerce-ceo-guide.pdf" class="text-green-600 underline hover:text-green-800">Download the guide directly</a>.</p>
       </div>
-      <p class="text-sm text-gray-500 mt-4">Having trouble? <a href="files/ecommerce-ceo-guide.pdf" class="text-green-600 underline hover:text-green-800">Download the guide directly</a>.</p>
     </div>
   </section>
 
@@ -188,12 +154,12 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-2xl sm:text-3xl font-bold text-green-800 mb-6">About Rhina Delgado</h2>
       <div class="profile-photo">
-        <img src="images/rhina-photo.jpg" alt="Rhina Delgado" onerror="this.src='https://via.placeholder.com/200x200?text=Rhina';">
+        <img src="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/rhina-photo.jpg" alt="Rhina Delgado" onerror="this.src='https://via.placeholder.com/200x200?text=Rhina';">
       </div>
       <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mt-6 mb-6">With over 7 years of experience scaling wellness e-commerce brands, I’m Rhina Delgado, the founder of Pink Wellness ROI. My mission is to help established businesses with $75k+ revenue achieve predictable, profitable growth through elite marketing strategies.</p>
       <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mb-6">My system is simple yet transformative: we start with a discovery process to uncover your biggest pain points, identify inefficiencies in your current marketing, and implement tailored, data-driven solutions to skyrocket your ROI. Unlike outdated, overly complex systems that confuse CEOs, my approach prioritizes clarity, actionable insights, and results-driven strategies customized to your unique goals.</p>
       <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">Ready to dominate your wellness niche? Apply for a free consultation to unlock your brand’s potential.</p>
-      <a href="#application-form" class="inline-block mt-6 pink-btn px-6 py-3 rounded-lg">Apply Now</a>
+      <a href="#home" class="inline-block mt-6 bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-300 font-semibold">Apply Now</a>
     </div>
   </section>
 
@@ -205,7 +171,7 @@
       <p class="text-base sm:text-lg text-green-600 mb-4">Email: <a href="mailto:rhina@pinkwellnessroi.com" class="underline">rhina@pinkwellnessroi.com</a></p>
       <p class="text-base sm:text-lg text-green-600 mb-4">LinkedIn: <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="underline">Rhina Delgado</a></p>
       <p class="text-base sm:text-lg text-green-600 mb-4">Schedule a Call: <a href="https://calendly.com/pinkelitestudio" target="_blank" class="underline">Book Now</a></p>
-      <a href="#application-form" class="inline-block pink-btn px-6 py-3 rounded-lg">Apply for a Consultation</a>
+      <a href="#home" class="inline-block bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition duration-300 font-semibold">Apply for a Consultation</a>
     </div>
   </section>
 
@@ -219,46 +185,56 @@
 
   <!-- JavaScript for Form Submission Handling -->
   <script>
-    // Handle Consultation Form Submission
-    document.getElementById('strategy-call-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const form = event.target;
-      fetch('/', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(response => {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('consultation-thank-you').style.display = 'block';
-        } else {
-          alert('There was an error submitting your application. Please try again.');
-        }
-      })
-      .catch(error => {
-        alert('There was an error submitting your application. Please try again.');
-      });
-    });
+    document.addEventListener('DOMContentLoaded', function () {
+      // Handle Strategy Call Form Submission
+      const strategyForm = document.getElementById('strategy-call-form');
+      const strategyThankYou = document.getElementById('consultation-thank-you');
+      if (strategyForm && strategyThankYou) {
+        strategyForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          const form = event.target;
+          fetch('/', {
+            method: 'POST',
+            body: new FormData(form)
+          })
+          .then(response => {
+            if (response.ok) {
+              strategyForm.classList.add('hidden');
+              strategyThankYou.classList.add('show');
+            } else {
+              alert('There was an error submitting your application. Please try again.');
+            }
+          })
+          .catch(error => {
+            alert('There was an error submitting your application. Please try again.');
+          });
+        });
+      }
 
-    // Handle Guide Download Form Submission
-    document.querySelector('#mc_embed_signup form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const form = event.target;
-      fetch('/', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(response => {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('guide-thank-you').style.display = 'block';
-        } else {
-          alert('There was an error downloading the guide. Please try again.');
-        }
-      })
-      .catch(error => {
-        alert('There was an error downloading the guide. Please try again.');
-      });
+      // Handle Guide Download Form Submission
+      const guideForm = document.querySelector('form[name="Free Form Guide"]');
+      const guideThankYou = document.getElementById('guide-thank-you');
+      if (guideForm && guideThankYou) {
+        guideForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          const form = event.target;
+          fetch('/', {
+            method: 'POST',
+            body: new FormData(form)
+          })
+          .then(response => {
+            if (response.ok) {
+              guideForm.classList.add('hidden');
+              guideThankYou.classList.add('show');
+            } else {
+              alert('There was an error downloading the guide. Please try again.');
+            }
+          })
+          .catch(error => {
+            alert('There was an error downloading the guide. Please try again.');
+          });
+        });
+      }
     });
   </script>
 </body>

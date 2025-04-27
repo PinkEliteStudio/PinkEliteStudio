@@ -42,6 +42,7 @@
     #mc_embed_signup_scroll .mc-field-group input { 
       width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; outline: none; 
     }
+    .thank-you-message { display: none; text-align: center; margin-top: 1rem; }
     @media (min-width: 768px) { 
       .logo img { width: 120px; height: 120px; }
       #application-form .form-group { max-width: 24rem; }
@@ -85,7 +86,7 @@
           <h3 class="text-lg sm:text-xl font-semibold text-green-600 mb-4">Apply for a Free Consultation</h3>
           <p class="text-sm text-gray-500 mb-4 italic">For established businesses only</p>
           <div id="application-form">
-            <form action="/thank-you-consultation.html" method="POST" id="strategy-call-form" name="strategy-call" data-netlify="true">
+            <form method="POST" id="strategy-call-form" name="strategy-call" data-netlify="true">
               <input type="hidden" name="form-name" value="strategy-call">
               <div class="form-group">
                 <input type="text" name="name" class="input-field" placeholder="Full Name" required>
@@ -117,6 +118,11 @@
               </div>
               <button type="submit" class="pink-btn">Submit Application</button>
             </form>
+            <div id="consultation-thank-you" class="thank-you-message">
+              <h3 class="text-2xl font-bold text-green-800 mb-2">Thank You for Applying!</h3>
+              <p class="text-gray-600">We've received your application for a free consultation. Check your email (including spam/junk) for confirmation and next steps. Qualified applicants will receive a scheduling link within 48 hours.</p>
+              <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="inline-block mt-4 pink-btn px-6 py-3 rounded-lg">Connect on LinkedIn</a>
+            </div>
           </div>
         </div>
         <p class="text-sm text-gray-500 mt-4">Applications reviewed within 48 hours. Qualified applicants receive a consultation link.</p>
@@ -137,8 +143,8 @@
       <p class="text-base sm:text-lg text-gray-600 mb-6">Download “The E-commerce CEO’s Guide to Doubling Ad ROI” to unlock proven strategies for scaling your brand.</p>
       <div id="mc_embed_shell">
         <div id="mc_embed_signup">
-          <form action="/thank-you-guide.html" method="POST" name="free-guide" data-netlify="true" class="validate" target="_self">
-            <input type="hidden" name="form-name" value="free-guide">
+          <form method="POST" name="Free Form Guide" data-netlify="true" class="validate" target="_self">
+            <input type="hidden" name="form-name" value="Free Form Guide">
             <div id="mc_embed_signup_scroll">
               <div class="mc-field-group">
                 <input type="email" name="EMAIL" class="required email input-field" id="mce-EMAIL" placeholder="Enter your email" required>
@@ -148,6 +154,11 @@
               </div>
             </div>
           </form>
+          <div id="guide-thank-you" class="thank-you-message">
+            <h3 class="text-2xl font-bold text-green-800 mb-2">Thank You for Downloading!</h3>
+            <p class="text-gray-600">We've sent "The E-commerce CEO's Guide to Doubling Ad ROI" to your email. Check your inbox (including spam/junk) for the download link.</p>
+            <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="inline-block mt-4 pink-btn px-6 py-3 rounded-lg">Connect on LinkedIn</a>
+          </div>
         </div>
       </div>
       <p class="text-sm text-gray-500 mt-4">Having trouble? <a href="files/ecommerce-ceo-guide.pdf" class="text-green-600 underline hover:text-green-800">Download the guide directly</a>.</p>
@@ -205,5 +216,50 @@
       <p class="text-gray-600 mt-2">Connect on <a href="https://www.linkedin.com/in/rhinadelgado/" target="_blank" class="text-green-600 underline hover:text-green-800">LinkedIn</a></p>
     </div>
   </footer>
+
+  <!-- JavaScript for Form Submission Handling -->
+  <script>
+    // Handle Consultation Form Submission
+    document.getElementById('strategy-call-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const form = event.target;
+      fetch('/', {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('consultation-thank-you').style.display = 'block';
+        } else {
+          alert('There was an error submitting your application. Please try again.');
+        }
+      })
+      .catch(error => {
+        alert('There was an error submitting your application. Please try again.');
+      });
+    });
+
+    // Handle Guide Download Form Submission
+    document.querySelector('#mc_embed_signup form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const form = event.target;
+      fetch('/', {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('guide-thank-you').style.display = 'block';
+        } else {
+          alert('There was an error downloading the guide. Please try again.');
+        }
+      })
+      .catch(error => {
+        alert('There was an error downloading the guide. Please try again.');
+      });
+    });
+  </script>
 </body>
 </html>

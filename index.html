@@ -34,7 +34,7 @@
 <body class="font-sans text-gray-800">
   <!-- Header -->
   <header class="bg-green-50 shadow sticky top-0 z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify Distrito de Lima-items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center">
       <div class="logo">
         <a href="https://www.pinkwellnessroi.com">
           <img src="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/logo.png" alt="Pink Wellness ROI Logo" onerror="this.src='https://via.placeholder.com/120x120?text=Logo';">
@@ -192,22 +192,9 @@
       if (strategyForm && strategyThankYou) {
         strategyForm.addEventListener('submit', function (event) {
           event.preventDefault();
-          const form = event.target;
-          fetch('/', {
-            method: 'POST',
-            body: new FormData(form)
-          })
-          .then(response => {
-            if (response.ok) {
-              strategyForm.classList.add('hidden');
-              strategyThankYou.classList.add('show');
-            } else {
-              alert('There was an error submitting your application. Please try again.');
-            }
-          })
-          .catch(error => {
-            alert('There was an error submitting your application. Please try again.');
-          });
+          strategyForm.classList.add('hidden');
+          strategyThankYou.classList.add('show');
+          strategyForm.submit(); // Let the form submit naturally to Netlify
         });
       }
 
@@ -217,22 +204,9 @@
       if (guideForm && guideThankYou) {
         guideForm.addEventListener('submit', function (event) {
           event.preventDefault();
-          const form = event.target;
-          fetch('/', {
-            method: 'POST',
-            body: new FormData(form)
-          })
-          .then(response => {
-            if (response.ok) {
-              guideForm.classList.add('hidden');
-              guideThankYou.classList.add('show');
-            } else {
-              alert('There was an error downloading the guide. Please try again.');
-            }
-          })
-          .catch(error => {
-            alert('There was an error downloading the guide. Please try again.');
-          });
+          guideForm.classList.add('hidden');
+          guideThankYou.classList.add('show');
+          guideForm.submit(); // Let the form submit naturally to Netlify
         });
       }
     });

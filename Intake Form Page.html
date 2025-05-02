@@ -1,0 +1,108 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Wellness ROI - Client Intake Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; margin: 0; padding: 20px; background-color: #f9f9f9; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; }
+        .header { text-align: center; padding: 20px; background-color: #ff99cc; color: #fff; border-radius: 8px 8px 0 0; }
+        .header img { max-width: 150px; }
+        h1 { font-size: 24px; margin: 0; }
+        label { display: block; margin: 10px 0 5px; }
+        input, textarea, select { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { display: block; width: 100%; padding: 12px; background-color: #ff6699; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+        .footer { text-align: center; font-size: 12px; color: #777; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/logo.png" alt="Pink Wellness ROI Logo">
+            <h1>Client Intake Form</h1>
+        </div>
+        <p>Please complete the form below.</p>
+        <form name="intake-form" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="intake-form">
+            <label for="business-name">Business Name and Website</label>
+            <input type="text" id="business-name" name="business-name" required>
+            
+            <label for="target-audience">Target Audience (e.g., age, gender, interests)</label>
+            <textarea id="target-audience" name="target-audience" rows="3" required></textarea>
+            
+            <label for="revenue-goals">Current Revenue and 12-Month Goals</label>
+            <input type="text" id="revenue-goals" name="revenue-goals" required>
+            
+            <label for="past-strategies">Past Marketing Strategies and Results</label>
+            <textarea id="past-strategies" name="past-strategies" rows="3" required></textarea>
+            
+            <label for="challenges">Biggest Marketing Challenges</label>
+            <textarea id="challenges" name="challenges" rows="3" required></textarea>
+            
+            <label for="ad-platforms">Current Ad Platforms and ROI</label>
+            <textarea id="ad-platforms" name="ad-platforms" rows="3"></textarea>
+            
+            <label for="funnel-tools">Existing Sales Funnel and Tools</label>
+            <textarea id="funnel-tools" name="funnel-tools" rows="3"></textarea>
+            
+            <label for="support-level">Desired Support Level</label>
+            <select id="support-level" name="support-level" required>
+                <option value="DIY">DIY</option>
+                <option value="Managed">Managed</option>
+                <option value="VIP">VIP</option>
+            </select>
+            
+            <label for="communication">Preferred Communication Method</label>
+            <input type="text" id="communication" name="communication" required>
+            
+            <label for="timeline">Timeline for Results</label>
+            <input type="text" id="timeline" name="timeline" required>
+            
+            <button type="submit">Submit Form</button>
+        </form>
+        <div class="footer">
+            <p><a href="https://pinkwellnessroi.com" style="color: #ff6699;">pinkwellnessroi.com</a></p>
+        </div>
+    </div>
+</body>
+</html>

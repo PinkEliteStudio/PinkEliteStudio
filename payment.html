@@ -1,0 +1,74 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Wellness ROI - Payment</title>
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; margin: 0; padding: 20px; background-color: #f9f9f9; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; }
+        .header { text-align: center; padding: 20px; background-color: #ff99cc; color: #fff; border-radius: 8px 8px 0 0; }
+        .header img { max-width: 150px; }
+        h1 { font-size: 24px; margin: 0; }
+        p { line-height: 1.6; margin: 15px 0; }
+        .cta-button { display: inline-block; padding: 12px 24px; background-color: #ff6699; color: #fff; text-decoration: none; border-radius: 5px; }
+        .footer { text-align: center; font-size: 12px; color: #777; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/PINKEliteStudio/PINKEliteStudio/main/images/logo.png" alt="Pink Wellness ROI Logo">
+            <h1>Payment</h1>
+        </div>
+        <p>Ready to get started with Pink Wellness ROI? Choose your service and make a payment below.</p>
+        <p style="text-align: center;">
+            <a href="[Your QuickBooks Link]" class="cta-button">Pay Now</a>
+        </p>
+        <p>Contact: <a href="mailto:pinkeliteva@gmail.com" style="color: #ff6699;">pinkeliteva@gmail.com</a></p>
+        <p>Rhina Delgado<br>Founder, Pink Wellness ROI</p>
+        <div class="footer">
+            <p><a href="https://pinkwellnessroi.com" style="color: #ff6699;">pinkwellnessroi.com</a></p>
+        </div>
+    </div>
+</body>
+</html>

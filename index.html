@@ -133,7 +133,7 @@
   <!-- Footer -->
   <footer class="bg-pink-700 text-white py-8">
     <div class="container mx-auto px-4 text-center">
-      <p>© 2025 Pink Wellness ROI. All rights reserved.</p>
+      <p>© <span id="copyright-year"></span> Pink Wellness ROI. All rights reserved.</p>
       <p class="mt-2">
         <a href="https://pinkwellnessroi.com/privacy" class="text-pink-200 hover:text-white">Privacy Policy</a> | 
         <a href="https://www.linkedin.com/in/rhinadelgado/" class="text-pink-200 hover:text-white">LinkedIn</a> | 
@@ -154,6 +154,9 @@
   <!-- TailwindCSS Script (At the Bottom) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Set the copyright year dynamically
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
     // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {

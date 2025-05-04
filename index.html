@@ -31,7 +31,7 @@
       background-color: #059669;
     }
     .success-message {
-      display: none; /* Hidden by default */
+      display: none;
       color: #10b981;
       margin-top: 10px;
       font-size: 16px;
@@ -110,7 +110,6 @@
         <input type="email" name="fields[email]" class="form-input" placeholder="Your Email" required />
         <button type="submit" class="form-button hover-scale">Download Now</button>
       </form>
-      <!-- Success message added here, hidden by default -->
       <p id="success-message" class="success-message">Thank you! Check your inbox for the free guide.</p>
       <p class="text-sm text-gray-500 mt-4">We respect your privacy. <a href="https://pinkwellnessroi.com/privacy" class="text-pink-700">View our Privacy Policy</a>.</p>
     </div>
@@ -126,7 +125,7 @@
       <div class="mt-4">
         <p class="text-gray-600 mb-4">Join our newsletter for exclusive insights and updates:</p>
         <!-- MailerLite Newsletter Sign-Up Link -->
-        <a href="https://dashboard.mailerlite.com/forms/153205442224325740/share" class="hover-scale" style="background-color: #fbcfe8; color: #ffffff; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none;">Join Our Newsletter</a>
+        <a href="https://dashboard.mailerlite.com/forms/153205442224325740/share" target="_blank" class="hover-scale" style="background-color: #fbcfe8; color: #ffffff; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none;">Join Our Newsletter</a>
       </div>
     </div>
   </section>
@@ -156,12 +155,9 @@
 
     // Handle form submission with JavaScript (AJAX)
     document.getElementById('free-form-guide').addEventListener('submit', function(e) {
-      e.preventDefault(); // Stop the form from submitting normally
-
+      e.preventDefault();
       const form = this;
-      const formData = new FormData(form); // Get the form data
-
-      // Send the form data to MailerLite using fetch (AJAX)
+      const formData = new FormData(form);
       fetch(form.action, {
         method: 'POST',
         body: formData,
@@ -169,10 +165,9 @@
           'Accept': 'application/json'
         }
       })
-      .then(response => response.json()) // Parse the JSON response
+      .then(response => response.json())
       .then(data => {
         if (data.success) {
-          // If submission is successful, hide the form and show the success message
           form.style.display = 'none';
           document.getElementById('success-message').style.display = 'block';
         } else {

@@ -31,7 +31,7 @@
       background-color: #059669;
     }
     .success-message {
-      display: none;
+      display: none; /* Hidden by default */
       color: #10b981;
       margin-top: 10px;
       font-size: 16px;
@@ -110,6 +110,7 @@
         <input type="email" name="fields[email]" class="form-input" placeholder="Your Email" required />
         <button type="submit" class="form-button hover-scale">Download Now</button>
       </form>
+      <!-- Success message added here, hidden by default -->
       <p id="success-message" class="success-message">Thank you! Check your inbox for the free guide.</p>
       <p class="text-sm text-gray-500 mt-4">We respect your privacy. <a href="https://pinkwellnessroi.com/privacy" class="text-pink-700">View our Privacy Policy</a>.</p>
     </div>
@@ -153,13 +154,14 @@
       });
     });
 
-    // Handle form submission with AJAX to prevent default behavior
+    // Handle form submission with JavaScript (AJAX)
     document.getElementById('free-form-guide').addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent default form submission
+      e.preventDefault(); // Stop the form from submitting normally
 
       const form = this;
-      const formData = new FormData(form);
+      const formData = new FormData(form); // Get the form data
 
+      // Send the form data to MailerLite using fetch (AJAX)
       fetch(form.action, {
         method: 'POST',
         body: formData,
@@ -167,10 +169,10 @@
           'Accept': 'application/json'
         }
       })
-      .then(response => response.json())
+      .then(response => response.json()) // Parse the JSON response
       .then(data => {
         if (data.success) {
-          // Hide the form and show the success message
+          // If submission is successful, hide the form and show the success message
           form.style.display = 'none';
           document.getElementById('success-message').style.display = 'block';
         } else {

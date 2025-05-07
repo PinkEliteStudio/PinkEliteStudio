@@ -1,0 +1,88 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playbook Delivery Email</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; background: #fff; }
+    .header { background: #f06292; padding: 20px; text-align: center; color: #fff; }
+    .header img { max-width: 200px; }
+    .content { padding: 20px; }
+    h2 { color: #f06292; font-size: 24px; }
+    p { color: #333; font-size: 16px; line-height: 1.5; }
+    a { color: #f06292; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .cta { background: #f06292; color: #fff; padding: 10px 20px; text-align: center; display: inline-block; border-radius: 5px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://pinkwellnessroi.com/images/logo.png" alt="PinkWellnessROI Logo">
+    </div>
+    <div class="content">
+      <h2>Your DIY Marketing Playbook Awaits!</h2>
+      <p>Hi [FirstName],</p>
+      <p>Thank you for purchasing the DIY Marketing Playbook from PinkWellnessROI!</p>
+      <p>Download your assets:</p>
+      <ul>
+        <li><a href="https://pinkwellnessroi.com/playbook.pdf">Playbook PDF</a></li>
+        <li><a href="https://pinkwellnessroi.com/playbook.html">Playbook HTML</a></li>
+        <li><a href="https://pinkwellnessroi.com/email_swipe.pdf">Email Swipe File PDF</a></li>
+        <li><a href="https://pinkwellnessroi.com/email_swipe.html">Email Swipe File HTML</a></li>
+        <li><a href="https://pinkwellnessroi.com/ad_scripts.pdf">Ad Script Templates PDF</a></li>
+        <li><a href="https://pinkwellnessroi.com/ad_scripts.html">Ad Script Templates HTML</a></li>
+        <li><a href="https://pinkwellnessroi.com/kpi_tracker.csv">KPI Tracker</a></li>
+        <li><a href="https://pinkwellnessroi.com/lead_magnet.pdf">Lead Magnet</a></li>
+      </ul>
+      <p>Visit our landing page for lead capture: <a href="https://pinkwellnessroi.com/landing.html">https://pinkwellnessroi.com/landing.html</a></p>
+      <p>Questions? Reply or email <a href="mailto:support@pinkwellnessroi.com">support@pinkwellnessroi.com</a>.</p>
+      <p>Best,<br>PinkWellnessROI Team</p>
+      <a href="https://pinkwellnessroi.com/downloads.html" class="cta">Access Downloads</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Swipe File for Wellness E-Commerce</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; background: #fff; }
+    .header { background: #f06292; padding: 20px; text-align: center; color: #fff; }
+    .header img { max-width: 200px; }
+    .section { padding: 20px; border-bottom: 1px solid #d4edda; }
+    h2 { color: #f06292; font-size: 24px; }
+    h3 { color: #333; font-size: 20px; }
+    p { color: #333; font-size: 16px; line-height: 1.5; }
+    .cta { background: #f06292; color: #fff; padding: 10px 20px; text-align: center; display: inline-block; text-decoration: none; border-radius: 5px; }
+    a { color: #f06292; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://pinkwellnessroi.com/images/logo.png" alt="PinkWellnessROI Logo">
+    </div>
+
+    <div class="section">
+      <h2>Welcome Sequence (3 Emails)</h2>
+      <h3>Email 1: Welcome to Your Wellness Journey</h3>
+      <p><strong>Purpose:</strong> Build trust, deliver lead magnet.</p>
+      <p><strong>Subject:</strong> Welcome to PinkWellnessROI!</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      Welcome to PinkWellnessROI! We're thrilled to support your wellness goals.<br>
+      Download your free 7-Day Yoga Challenge: <a href="https://pinkwellnessroi.com/lead_magnet.pdf">Download Here</a><br>
+      Stay tuned for exclusive tips and offers!<br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+      <a href="https://pinkwellnessroi.com/lead_magnet.pdf" class="cta">Download Now</a>
+
+      <h3>Email 2: Success Story</h3>
+      <p><strong>Purpose:</strong> Inspire action with social proof.</p>
+      <p><strong>Subject:</strong> How Sarah Transformed Her Wellness</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      Meet Sarah, who boosted her energy with our supplements. After just 30 days, she felt more vibrant and focused.<br>
+      Explore our products: <a href="https://pinkwellnessroi.com/products">Shop Now</a><br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+
+      <h3>Email 3: Exclusive Offer</h3>
+      <p><strong>Purpose:</strong> Drive first purchase.</p>
+      <p><strong>Subject:</strong> Save 15% on Your First Order!</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      Enjoy 15% off with code WELCOME15. Shop now: <a href="https://pinkwellnessroi.com/products">Shop Now</a><br>
+      Offer ends in 48 hours!<br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+    </div>
+
+    <div class="section">
+      <h2>Nurture Sequence (5 Emails)</h2>
+      <h3>Email 4: Wellness Tip</h3>
+      <p><strong>Purpose:</strong> Educate and engage.</p>
+      <p><strong>Subject:</strong> 3 Tips for a Healthier You</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      Try these wellness tips: 1) Hydrate daily, 2) Move 30 min/day, 3) Prioritize sleep.<br>
+      Our products can help: <a href="https://pinkwellnessroi.com/products">Shop Now</a><br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+
+      <h3>Email 5: Product Highlight</h3>
+      <p><strong>Purpose:</strong> Showcase product benefits.</p>
+      <p><strong>Subject:</strong> Why Choose Our Supplements?</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      Our supplements are organic and non-GMO. See why customers love them: <a href="https://pinkwellnessroi.com/products">Learn More</a><br>
+      Shop now: <a href="https://pinkwellnessroi.com/products">Shop Now</a><br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+
+      <h3>Email 6: Customer Testimonial</h3>
+      <p><strong>Purpose:</strong> Build trust with social proof.</p>
+      <p><strong>Subject:</strong> What Our Customers Are Saying</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      “These supplements changed my life!” – Jane. Hear her story: <a href="https://pinkwellnessroi.com/testimonials">Read More</a><br>
+      Try them yourself: <a href="https://pinkwellnessroi.com/products">Shop Now</a><br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+
+      <h3>Email 7: Wellness Challenge</h3>
+      <p><strong>Purpose:</strong> Increase engagement.</p>
+      <p><strong>Subject:</strong> Join Our 7-Day Wellness Challenge</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      Ready to feel amazing? Join our free 7-day challenge: <a href="https://pinkwellnessroi.com/challenge">Join Now</a><br>
+      Get tips and product recommendations!<br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+
+      <h3>Email 8: Final Nurture Push</h3>
+      <p><strong>Purpose:</strong> Drive conversions.</p>
+      <p><strong>Subject:</strong> Your Wellness Journey Starts Now</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      You’re one step away from better health. Shop our supplements and save 10%: <a href="https://pinkwellnessroi.com/products">Shop Now</a><br>
+      Don’t miss out!<br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+    </div>
+
+    <div class="section">
+      <h2>Abandoned Cart Sequence (2 Emails)</h2>
+      <h3>Email 9: Cart Reminder</h3>
+      <p><strong>Purpose:</strong> Recover lost sales.</p>
+      <p><strong>Subject:</strong> Forgot Something in Your Cart?</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      Your supplements are waiting! Complete your order: <a href="https://pinkwellnessroi.com/cart">Finish Checkout</a><br>
+      Need help? Reply to this email.<br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+
+      <h3>Email 10: Last Chance Offer</h3>
+      <p><strong>Purpose:</strong> Create urgency.</p>
+      <p><strong>Subject:</strong> Last Chance: 10% Off Your Cart</p>
+      <p><strong>Body:</strong><br>
+      Hi [FirstName],<br>
+      Your cart expires soon. Use code CART10 to save 10%: <a href="https://pinkwellnessroi.com/cart">Shop Now</a><br>
+      Don’t miss out!<br>
+      Best,<br>
+      PinkWellnessROI Team</p>
+    </div>
+
+    <div class="section">
+      <p><strong>Upload Instructions:</strong><br>
+      1. Save each email section as a separate HTML file (e.g., welcome1.html, nurture4.html).<br>
+      2. In MailerLite, create a campaign, select Custom HTML Editor, and paste the HTML code.<br>
+      3. Set automation triggers (e.g., form submission, cart abandonment).</p>
+    </div>
+  </div>
+</body>
+</html>

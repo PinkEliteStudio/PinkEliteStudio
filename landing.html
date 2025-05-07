@@ -1,0 +1,77 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellness Landing Page - PinkWellnessROI</title>
+  <style>
+    body { font-family: 'Noto Serif', Arial, sans-serif; text-align: center; margin: 0; background: #f4f4f4; }
+    .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 5px; }
+    .header { background: #f06292; padding: 20px; text-align: center; color: #fff; border-radius: 5px 5px 0 0; }
+    .header img { max-width: 200px; }
+    .hero { background: #d4edda; padding: 60px 20px; color: #333; }
+    h1 { color: #f06292; font-size: 2.5em; margin: 0.5em 0; }
+    p { font-size: 1.2em; max-width: 600px; margin: 0 auto 1em; }
+    .cta { background: #f06292; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 1.1em; }
+    form { margin: 20px; }
+    input { padding: 12px; width: 250px; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    button { background: #f06292; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; }
+    @media (max-width: 600px) { h1 { font-size: 2em; } input { width: 100%; margin-bottom: 10px; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://pinkwellnessroi.com/images/logo.png" alt="PinkWellnessROI Logo">
+    </div>
+    <div class="hero">
+      <h1>Unlock Your Wellness Potential</h1>
+      <p>Get our free 7-Day Yoga Challenge to kickstart your journey to better health!</p>
+      <a href="#signup" class="cta">Download Now</a>
+    </div>
+    <form id="signup" action="[MAILERLITE_FORM_URL]">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

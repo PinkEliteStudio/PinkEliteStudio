@@ -1,0 +1,154 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ad Script Templates for Wellness E-Commerce</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; background: #fff; }
+    .header { background: #f06292; padding: 20px; text-align: center; color: #fff; }
+    .header img { max-width: 200px; }
+    .section { padding: 20px; border-bottom: 1px solid #d4edda; }
+    h2 { color: #f06292; font-size: 24px; }
+    h3 { color: #333; font-size: 20px; }
+    p { color: #333; font-size: 16px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://pinkwellnessroi.com/images/logo.png" alt="PinkWellnessROI Logo">
+    </div>
+
+    <div class="section">
+      <h2>Google Ads (Search)</h2>
+      <h3>Template 1: High-Intent Purchase</h3>
+      <p><strong>Headline 1:</strong> Shop Premium Supplements Now</p>
+      <p><strong>Headline 2:</strong> Save 20% + Free Shipping</p>
+      <p><strong>Description Line 1:</strong> Discover PinkWellnessROI’s top-rated organic supplements.</p>
+      <p><strong>Description Line 2:</strong> High-quality, natural ingredients. Click to shop today!</p>
+      <p><strong>CTA:</strong> Shop Now</p>
+
+      <h3>Template 2: Lead Magnet Offer</h3>
+      <p><strong>Headline 1:</strong> Free Supplement Guide</p>
+      <p><strong>Headline 2:</strong> Boost Your Wellness Today</p>
+      <p><strong>Description Line 1:</strong> Learn how to choose the best supplements for you.</p>
+      <p><strong>Description Line 2:</strong> Download our free guide from PinkWellnessROI now!</p>
+      <p><strong>CTA:</strong> Download Free Guide</p>
+
+      <h3>Template 3: Limited-Time Discount</h3>
+      <p><strong>Headline 1:</strong> 25% Off Supplements Today</p>
+      <p><strong>Headline 2:</strong> PinkWellnessROI Wellness Sale</p>
+      <p><strong>Description Line 1:</strong> Stock up on premium supplements at a discount.</p>
+      <p><strong>Description Line 2:</strong> Use code WELL25. Free shipping on $50+!</p>
+      <p><strong>CTA:</strong> Shop Sale</p>
+
+      <h3>Template 4: Product Highlight</h3>
+      <p><strong>Headline 1:</strong> Best Vegan Protein Powder</p>
+      <p><strong>Headline 2:</strong> Trusted by Thousands</p>
+      <p><strong>Description Line 1:</strong> Fuel your body with PinkWellnessROI’s vegan protein.</p>
+      <p><strong>Description Line 2:</strong> Non-GMO, organic. Shop now and save 15%!</p>
+      <p><strong>CTA:</strong> Buy Now</p>
+    </div>
+
+    <div class="section">
+      <h2>Meta Ads (Carousel)</h2>
+      <h3>Template 1: Wellness Journey</h3>
+      <p><strong>Headline:</strong> Transform Your Wellness Routine</p>
+      <p><strong>Slide 1:</strong><br>
+      - Text: Struggling with energy? Try our supplements!</p>
+      <p><strong>Slide 2:</strong><br>
+      - Text: Organic, high-quality ingredients.</p>
+      <p><strong>Slide 3:</strong><br>
+      - Text: Save 15% today! Click to shop.</p>
+      <p><strong>CTA:</strong> Shop Now</p>
+
+      <h3>Template 2: Problem-Solution</h3>
+      <p><strong>Headline:</strong> Feel Your Best with PinkWellnessROI</p>
+      <p><strong>Slide 1:</strong><br>
+      - Text: Tired and overwhelmed?</p>
+      <p><strong>Slide 2:</strong><br>
+      - Text: Our vitamins boost energy naturally.</p>
+      <p><strong>Slide 3:</strong><br>
+      - Text: Join thousands. Get 20% off now!</p>
+      <p><strong>CTA:</strong> Shop Now</p>
+
+      <h3>Template 3: Customer Testimonials</h3>
+      <p><strong>Headline:</strong> Real Results with PinkWellnessROI</p>
+      <p><strong>Slide 1:</strong><br>
+      - Text: “I feel amazing!” – Sarah</p>
+      <p><strong>Slide 2:</strong><br>
+      - Text: Trusted supplements for wellness.</p>
+      <p><strong>Slide 3:</strong><br>
+      - Text: Save 10% on your first order!</p>
+      <p><strong>CTA:</strong> Shop Now</p>
+    </div>
+
+    <div class="section">
+      <h2>Pinterest Pins</h2>
+      <h3>Template 1: Product Focus</h3>
+      <p><strong>Title:</strong> Best Organic Supplements</p>
+      <p><strong>Description:</strong> Boost your wellness with PinkWellnessROI’s organic supplements! 🌿 Non-GMO, high-quality. Save 10% now. #Wellness #HealthyLiving</p>
+      <p><strong>CTA:</strong> Shop Now</p>
+
+      <h3>Template 2: Lifestyle Inspiration</h3>
+      <p><strong>Title:</strong> Wellness Starts Here</p>
+      <p><strong>Description:</strong> Discover PinkWellnessROI’s yoga gear and supplements to elevate your routine. Click to save 15%! #YogaLife #Wellness</p>
+      <p><strong>CTA:</strong> Learn More</p>
+    </div>
+
+    <div class="section">
+      <h2>Video Ad Script (30 Seconds)</h2>
+      <p><strong>Script:</strong><br>
+      [Scene 1: Person looking tired, 5s]<br>
+      Voiceover: “Struggling with low energy or stress?”<br>
+      [Scene 2: Product reveal, supplement bottle, 10s]<br>
+      Voiceover: “PinkWellnessROI’s organic supplements are natural, high-quality, and trusted.”<br>
+      [Scene 3: Happy customer exercising, 10s]<br>
+      Voiceover: “Join thousands who feel their best. Save 20% today!”<br>
+      [Scene 4: CTA with pink CTA button, 5s]<br>
+      Voiceover: “Shop now at <a href="https://pinkwellnessroi.com">https://pinkwellnessroi.com</a>!”</p>
+    </div>
+  </div>
+</body>
+</html>

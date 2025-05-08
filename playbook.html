@@ -1,0 +1,676 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIY Marketing Playbook for Wellness E-Commerce Brands</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; color: #333; background: #f4f4f4; }
+    .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 5px; }
+    .header { background: #f06292; padding: 20px; text-align: center; color: #fff; border-radius: 5px 5px 0 0; }
+    .header img { max-width: 200px; }
+    h1 { color: #f06292; text-align: center; font-size: 2em; }
+    h2 { color: #333; font-size: 1.5em; margin-top: 1.5em; }
+    h3 { color: #333; font-size: 1.2em; margin-top: 1em; }
+    p { font-size: 16px; line-height: 1.5; }
+    ul { margin: 1em 0; padding-left: 30px; }
+    li { margin-bottom: 0.5em; }
+    a { color: #f06292; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .section { margin-bottom: 2em; page-break-after: always; }
+    .customize-note { background: #d4edda; padding: 15px; border-radius: 5px; margin: 1em 0; }
+    .case-study { background: #f0f0f0; padding: 15px; border-radius: 5px; }
+    pre { background: #f8f8f8; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f06292; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="https://pinkwellnessroi.com/images/logo.png" alt="PinkWellnessROI Logo">
+    </div>
+
+    <!-- Page 1: Cover -->
+    <div class="section">
+      <h1>DIY Marketing Playbook for Wellness E-Commerce Brands</h1>
+      <p style="text-align: center;">A $4,995 Data-Driven System for Brands with $100k+ Revenue</p>
+      <p style="text-align: center;">PinkWellnessROI | May 2025</p>
+    </div>
+
+    <!-- Pages 2-4: Introduction -->
+    <div class="section">
+      <h2>1. Introduction</h2>
+      <h3>1.1 Mission and Vision</h3>
+      <p>PinkWellnessROI empowers wellness e-commerce brands with $100k+ revenue to achieve 20–50% growth through a simple, data-driven marketing system. Our vision is to equip hands-on CEOs with tools to scale without agencies, delivering measurable results.</p>
+      <h3>1.2 Who This Playbook Is For</h3>
+      <p>This $4,995 playbook is for CEOs of wellness brands (e.g., supplements, yoga gear, skincare) generating $100k+ annually. It’s ideal for leaders who want to optimize ads, email funnels, SEO, social media, and analytics themselves.</p>
+      <h3>1.3 How to Use This Playbook</h3>
+      <p>Follow the 60+ pages over 6 months, implementing one section at a time (e.g., start with SEO). Customize templates in Canva or code for your niche. Track progress with the KPI Tracker. Use the lead magnet to attract leads. Contact Rhina Delgado at <a href="mailto:rhina@pinkwellnessroi.com">rhina@pinkwellnessroi.com</a> for support.</p>
+      <h3>1.4 Package Overview</h3>
+      <ul>
+        <li><strong>Playbook Guide:</strong> 60+ pages of strategies and templates.</li>
+        <li><strong>Lead Magnet:</strong> Front-page guide to attract leads.</li>
+        <li><strong>Email Swipe File:</strong> 15 sequences for nurturing.</li>
+        <li><strong>Ad Scripts:</strong> 30 scripts for Google, Meta, Pinterest, TikTok, LinkedIn.</li>
+        <li><strong>KPI Tracker:</strong> CSV/Google Sheets for metrics.</li>
+        <li><strong>Landing Page:</strong> Mobile-responsive lead capture page.</li>
+      </ul>
+      <div class="customize-note">
+        <p><strong>Customization:</strong> Import PDFs into Canva to change #f06292 to your brand colors, add your logo, and update CTAs. Visit <a href="https://www.canva.com">Canva</a>.</p>
+      </div>
+    </div>
+
+    <!-- Pages 5-7: Success Formula -->
+    <div class="section">
+      <h2>2. Success Formula</h2>
+      <h3>2.1 The Formula</h3>
+      <p>Scale your brand with: <strong>Revenue Growth = (SEO Traffic × Conversion Rate) + (Ad ROAS × Ad Spend) + (Email Revenue × Open Rate)</strong>.</p>
+      <ul>
+        <li><strong>SEO Traffic:</strong> Drive 10k organic visits with 10 high-intent keywords (e.g., “wellness e-commerce marketing”) in 6 months.</li>
+        <li><strong>Conversion Rate:</strong> Boost from 2% to 4% with optimized landing pages and trust signals (e.g., testimonials).</li>
+        <li><strong>Ad ROAS:</strong> Achieve 4:1 ROAS (4x revenue per $1 spent) with Meta, Google, and TikTok ads.</li>
+        <li><strong>Email Revenue:</strong> Generate 20% of revenue from email funnels with 30% open rates.</li>
+      </ul>
+      <h3>2.2 What is ROAS?</h3>
+      <p><strong>ROAS (Return on Ad Spend)</strong> measures ad efficiency: <strong>ROAS = Revenue from Ads / Ad Spend</strong>. Example: $500 Meta Ads generate $2,000 sales → ROAS = $2,000 / $500 = 4:1. Target 4:1 ROAS to ensure $4 revenue per $1 spent, aligning with e-commerce benchmarks.</p>
+      <h3>2.3 Ad Budget Guidelines</h3>
+      <p>You’re responsible for ad costs (separate from the $4,995 playbook). Recommended budgets:</p>
+      <ul>
+        <li><strong>Starting Budget:</strong> $500/month ($120/week) for $100k–$250k revenue brands; $1,000/month ($240/week) for $250k–$500k brands.</li>
+        <li><strong>Allocation:</strong> 50% Meta ($250), 30% Google ($150), 20% Pinterest/TikTok ($100).</li>
+        <li><strong>Scaling:</strong> Increase 20% weekly for >4:1 ROAS ads (e.g., $250 → $300). Pause <2:1 ROAS ads.</li>
+        <li><strong>Cap:</strong> Limit to 10–15% of monthly revenue (e.g., $833–$1,250 for $100k/year).</li>
+        <li><strong>Expected ROAS:</strong> 3:1–5:1 after 3 months with optimization.</li>
+      </ul>
+      <p><strong>Example:</strong> A $200k brand spends $750/month ($375 Meta, $225 Google, $150 Pinterest/TikTok). With 4:1 ROAS, $750 generates $3,000 in sales, adding $27,000 in 6 months.</p>
+      <div class="case-study">
+        <p><strong>Case Study:</strong> A supplement brand spent $600/month on ads, optimized for 4:1 ROAS, and added $20k in sales in 4 months.</p>
+      </div>
+    </div>
+
+    <!-- Pages 8-11: Discovery Process -->
+    <div class="section">
+      <h2>3. Discovery Process</h2>
+      <h3>3.1 Audit Current Performance</h3>
+      <ul>
+        <li>Create a Google Analytics account (analytics.google.com). Add tracking code to Shopify (Settings > Checkout > Additional Scripts).</li>
+        <li>Export data on traffic sources, bounce rates (aim <40%), and conversions (e.g., purchases).</li>
+        <li>Log into Meta/Google Ads to review cost-per-click ($1–$3 target), ROAS (2:1 minimum), and conversion rates (2%+).</li>
+        <li>Install Hotjar (hotjar.com, free plan) to analyze clicks and scrolls on product pages.</li>
+        <li>Document in the KPI Tracker.</li>
+      </ul>
+      <h3>3.2 Identify Pain Points</h3>
+      <ul>
+        <li>Conduct a SWOT analysis: List Strengths (e.g., strong products), Weaknesses (e.g., high cart abandonment), Opportunities (e.g., SEO), Threats (e.g., competitors).</li>
+        <li>Create a Typeform survey (typeform.com, free plan) asking: “What stops you from buying?” or “What do you value in wellness products?”</li>
+        <li>Map your funnel in Lucidchart (lucidchart.com, free trial) to identify drop-offs (e.g., 50% abandon cart).</li>
+        <li>List top 3 pain points (e.g., low email opens, poor SEO rankings).</li>
+      </ul>
+      <h3>3.3 Set SMART Goals</h3>
+      <ul>
+        <li>Define 3–5 Specific, Measurable, Achievable, Relevant, Time-bound goals (e.g., “Increase ROAS to 4:1 in 90 days,” “Rank top 10 for 5 keywords in 6 months”).</li>
+        <li>Calculate customer lifetime value (CLV) in Shopify (Reports > Customers) to align goals (e.g., $200 CLV → prioritize repeat purchases).</li>
+        <li>Log goals in the KPI Tracker and review weekly via Google Sheets.</li>
+      </ul>
+      <h3>Template: SWOT Analysis</h3>
+      <table>
+        <tr><th>Category</th><th>Details</th></tr>
+        <tr><td>Strengths</td><td>High-quality products, loyal customers</td></tr>
+        <tr><td>Weaknesses</td><td>50% cart abandonment, low SEO traffic</td></tr>
+        <tr><td>Opportunities</td><td>Target “organic supplements” keyword, TikTok ads</td></tr>
+        <tr><td>Threats</td><td>Competitor discounts, rising ad costs</td></tr>
+      </table>
+      <h3>Template: KPI Tracker Snippet</h3>
+      <table>
+        <tr><th>Metric</th><th>Goal</th><th>Week 1</th><th>Week 2</th></tr>
+        <tr><td>Organic Traffic</td><td>10k/month</td><td>5k</td><td></td></tr>
+        <tr><td>ROAS</td><td>4:1</td><td>3:1</td><td></td></tr>
+        <tr><td>Conversion Rate</td><td>4%</td><td>2%</td><td></td></tr>
+      </table>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Import the KPI Tracker CSV into Google Sheets. Adjust goals for your niche (e.g., 3:1 ROAS for supplements).</p>
+      </div>
+    </div>
+
+    <!-- Pages 12-21: SEO for Wellness Brands -->
+    <div class="section">
+      <h2>4. SEO for Wellness Brands</h2>
+      <h3>4.1 Why SEO Matters</h3>
+      <p>SEO drives 30% of e-commerce traffic, reducing customer acquisition costs by 60%. For $100k+ brands, ranking for “organic supplements” or “wellness marketing” attracts high-intent buyers.</p>
+      <h3>4.2 Backend Setup</h3>
+      <ul>
+        <li>Generate sitemap.xml in Shopify (Settings > Files) or Netlify (create manually: sitemap.xml).</li>
+        <li>Submit to Google Search Console (search.google.com, Sitemaps).</li>
+        <li>Run Screaming Frog (free) to find broken links, 404 errors, or redirect loops. Fix in Shopify (edit URLs) or Netlify (update HTML).</li>
+        <li>Test load time on PageSpeed Insights (<2 seconds, 90+/100). Compress images (WebP format) and minify CSS/JavaScript.</li>
+        <li>Test mobile-friendliness (mobile-friendly.test). Use responsive CSS (@media queries).</li>
+        <li>Add product schema to sales pages.</li>
+      </ul>
+      <h3>Template: Schema Markup</h3>
+      <pre>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "[Your Product]",
+  "description": "Premium wellness product",
+  "offers": {
+    "@type": "Offer",
+    "price": "[Price]",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+      </pre>
+      <h3>4.3 Keyword Research</h3>
+      <ul>
+        <li>Sign up for SEMrush (free trial) or Google Keyword Planner (ads.google.com).</li>
+        <li>Find 10 primary keywords (1k–10k monthly searches, low difficulty, e.g., “wellness e-commerce marketing”) and 20 long-tail (100–1k searches, e.g., “scale yoga gear business”).</li>
+        <li>Analyze competitors (e.g., Goop) in SEMrush for keyword gaps.</li>
+        <li>Save in Google Sheets (KPI Tracker).</li>
+      </ul>
+      <h3>Template: Keyword Tracker</h3>
+      <table>
+        <tr><th>Keyword</th><th>Type</th><th>Monthly Searches</th><th>Difficulty</th></tr>
+        <tr><td>wellness e-commerce marketing</td><td>Primary</td><td>5k</td><td>Low</td></tr>
+        <tr><td>scale skincare business</td><td>Long-Tail</td><td>500</td><td>Low</td></tr>
+      </table>
+      <h3>4.4 Content Creation</h3>
+      <ul>
+        <li>Write 2 blog posts/week (1,500–2,000 words) in clusters: 1 pillar post (e.g., “Ultimate Guide to Wellness Marketing”) + 10 supporting posts (e.g., “Top SEO Strategies”).</li>
+        <li>Optimize titles (<60 characters, e.g., “Scale Your Wellness Brand”), meta descriptions (160 characters, e.g., “Boost revenue with our playbook. Free guide!”), and H1/H2 headers.</li>
+        <li>Add internal links to product pages and alt text to images (e.g., “vegan protein powder”).</li>
+        <li>Share posts on Pinterest and Meta with keyword-rich captions.</li>
+      </ul>
+      <h3>Template: Blog Post Outline</h3>
+      <table>
+        <tr><th>Section</th><th>Content</th><th>Word Count</th></tr>
+        <tr><td>H1: How to Scale Your Wellness Brand</td><td>Introduce playbook benefits</td><td>200</td></tr>
+        <tr><td>H2: Why SEO Matters</td><td>30% traffic from SEO</td><td>400</td></tr>
+        <tr><td>H2: Top Strategies</td><td>5 tactics (e.g., content clusters)</td><td>600</td></tr>
+      </table>
+      <h3>4.5 Link Building</h3>
+      <ul>
+        <li>Email 10 wellness blogs/month (e.g., Well+Good, MindBodyGreen) offering 1,000-word guest posts (e.g., “Wellness Marketing Trends”). Include 1–2 links to your site.</li>
+        <li>Partner with 2–3 micro-influencers (10k–50k followers) for blog posts or social mentions with links.</li>
+        <li>Submit to directories (e.g., WellnessMama).</li>
+        <li>Answer questions on Reddit (r/Supplements) or Quora, linking to blog posts.</li>
+        <li>Track backlinks in Ahrefs’ free Backlink Checker.</li>
+      </ul>
+      <h3>4.6 Tracking</h3>
+      <ul>
+        <li>Monitor clicks, impressions, and rankings in Google Search Console weekly.</li>
+        <li>Track organic traffic and conversions in Google Analytics.</li>
+        <li>Use SEMrush to check keyword positions monthly.</li>
+        <li>Aim for top 10 for 5 keywords, 10k visits, 20% domain authority increase in 6 months.</li>
+      </ul>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Tailor keywords to your niche (e.g., “organic skincare” for skincare brands).</p>
+      </div>
+      <div class="case-study">
+        <p><strong>Case Study:</strong> A yoga gear brand ranked for “vegan yoga mats,” driving 5k visits and $20k in sales in 4 months.</p>
+      </div>
+    </div>
+
+    <!-- Pages 22-26: Marketing Funnel -->
+    <div class="section">
+      <h2>5. Marketing Funnel</h2>
+      <h3>5.1 Why Funnels Matter</h3>
+      <p>Funnels guide prospects from awareness (TOFU) to purchase (BOFU), increasing conversions by 3x.</p>
+      <h3>5.2 Structure</h3>
+      <ul>
+        <li><strong>TOFU:</strong> Blog posts, Meta ads, Pinterest pins to attract leads.</li>
+        <li><strong>MOFU:</strong> Lead magnet, email sequences, TikTok videos to nurture.</li>
+        <li><strong>BOFU:</strong> Retargeting ads, abandoned cart emails, discounts to convert.</li>
+      </ul>
+      <h3>5.3 Setup</h3>
+      <ul>
+        <li>Use the lead magnet (https://pinkwellnessroi.com/lead_magnet.html) to capture emails.</li>
+        <li>Build a Netlify landing page with a MailerLite form.</li>
+        <li>Create a 5-email nurture sequence in MailerLite.</li>
+        <li>Launch Meta retargeting ads ($10/day, included in $500/month budget).</li>
+        <li>Track conversions in Google Analytics (e.g., email sign-ups, purchases).</li>
+      </ul>
+      <h3>Template: Landing Page Snippet</h3>
+      <pre>
+<div class="hero" style="background: #d4edda; padding: 60px 20px;">
+  <h1 style="color: #f06292;">Scale Your Wellness Brand</h1>
+  <p>Get our free guide to boost revenue by 20–50%!</p>
+  <form action="https://dashboard.mailerlite.com/forms/153205442224325740/share">
+    <input type="email" placeholder="Enter your email" required style="padding: 12px; width: 250px;">
+    <button type="submit" style="background: #f06292; color: #fff; padding: 12px;">Submit</button>
+  </form>
+</div>
+      </pre>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Update the form URL and add niche-specific visuals in Canva (e.g., yoga gear images).</p>
+      </div>
+    </div>
+
+    <!-- Pages 27-34: Google Ads -->
+    <div class="section">
+      <h2>6. Google Ads</h2>
+      <h3>6.1 Why Google Ads?</h3>
+      <p>Google Ads drive immediate traffic for high-intent keywords, complementing SEO. Expect 4:1 ROAS with optimization.</p>
+      <h3>6.2 Campaign Setup</h3>
+      <ul>
+        <li>Create a Google Ads account (ads.google.com) and link to Google Analytics.</li>
+        <li>Set up 3 campaigns: Search (keywords like “wellness marketing playbook”), Shopping (product feeds), Remarketing (site visitors).</li>
+        <li>Create ad groups by product categories (e.g., supplements, yoga gear).</li>
+        <li>Start with $150/month ($35/week) of your $500–$1,000 budget.</li>
+      </ul>
+      <h3>6.3 Ad Creation</h3>
+      <ul>
+        <li>Write 3 headlines per ad (e.g., “Scale Your Wellness Brand,” “High-ROI Playbook”).</li>
+        <li>Use dynamic keyword insertion (e.g., {KeyWord:Supplements}).</li>
+        <li>Add site links (e.g., “Shop Now,” “Free Guide”).</li>
+        <li>Upload product feeds for Shopping ads via Shopify (Apps > Google Shopping).</li>
+      </ul>
+      <h3>Template: Google Search Ad</h3>
+      <table>
+        <tr><th>Element</th><th>Content</th></tr>
+        <tr><td>Headline 1</td><td>Scale Your Wellness Brand</td></tr>
+        <tr><td>Headline 2</td><td>High-ROI Marketing Playbook</td></tr>
+        <tr><td>Headline 3</td><td>Free Guide Available</td></tr>
+        <tr><td>Description</td><td>Boost revenue by 20–50% with our $4,995 system. Download now!</td></tr>
+        <tr><td>CTA</td><td>Download Now</td></tr>
+      </table>
+      <h3>Template: Shopping Ad Feed</h3>
+      <table>
+        <tr><th>Field</th><th>Content</th></tr>
+        <tr><td>Title</td><td>Organic Supplement Bundle</td></tr>
+        <tr><td>Description</td><td>Premium wellness supplements</td></tr>
+        <tr><td>Price</td><td>$99.00</td></tr>
+        <tr><td>Image URL</td><td>https://yourbrand.com/product.jpg</td></tr>
+      </table>
+      <h3>6.4 Optimization</h3>
+      <ul>
+        <li>Install conversion tracking (Google Ads > Tools > Conversions).</li>
+        <li>A/B test headlines and descriptions weekly.</li>
+        <li>Pause ads with <1% CTR or >$20 cost-per-conversion.</li>
+        <li>Scale >4:1 ROAS ads by 20% weekly (e.g., $35 → $42).</li>
+        <li>Monitor ROAS daily in Google Ads to stay within 10–15% revenue cap.</li>
+      </ul>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Adjust ad copy for your niche (e.g., “Vegan Yoga Mats” for yoga gear).</p>
+      </div>
+    </div>
+
+    <!-- Pages 35-39: Pinterest Marketing -->
+    <div class="section">
+      <h2>7. Pinterest Marketing</h2>
+      <h3>7.1 Why Pinterest?</h3>
+      <p>Pinterest drives 2x conversions for wellness brands with aesthetic visuals.</p>
+      <h3>7.2 Pin Creation</h3>
+      <ul>
+        <li>Create a Pinterest Business account (business.pinterest.com) and claim your website.</li>
+        <li>Design 10 shoppable pins/month with keywords (e.g., “wellness marketing”).</li>
+        <li>Use Canva to create 1000x1500px pins with your products.</li>
+        <li>Link to blog posts or product pages.</li>
+      </ul>
+      <h3>Template: Shoppable Pin Description</h3>
+      <table>
+        <tr><th>Element</th><th>Content</th></tr>
+        <tr><td>Title</td><td>Wellness Marketing Playbook</td></tr>
+        <tr><td>Description</td><td>Scale your wellness brand with our $4,995 system! Free guide. #WellnessMarketing #Ecommerce</td></tr>
+        <tr><td>CTA</td><td>Shop Now</td></tr>
+      </table>
+      <h3>7.3 Ads</h3>
+      <ul>
+        <li>Run Promoted Pins ($50/month of your $500–$1,000 budget).</li>
+        <li>Target interests (e.g., wellness, yoga) and keywords (e.g., “supplements”).</li>
+        <li>Track clicks, saves, and conversions in Pinterest Analytics.</li>
+        <li>Scale >2% CTR pins by 10% weekly.</li>
+      </ul>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Use niche-specific visuals in Canva (e.g., skincare routines).</p>
+      </div>
+    </div>
+
+    <!-- Pages 40-47: Meta Ads -->
+    <div class="section">
+      <h2>8. Meta Ads</h2>
+      <h3>8.1 Why Meta Ads?</h3>
+      <p>Meta (Facebook/Instagram) ads reach 60% of wellness audiences, delivering 3:1–5:1 ROAS.</p>
+      <h3>8.2 Audience Setup</h3>
+      <ul>
+        <li>In Meta Ads Manager, create audiences for interests (e.g., yoga, vegan) and 1% lookalikes based on your top customers.</li>
+        <li>Target women 25–45 in the US, Canada, or UK.</ दूर</div>
+      </ul>
+      <h3>8.3 Creatives</h3>
+      <ul>
+        <li>Create carousel ads (3–5 slides) showcasing product benefits.</li>
+        <li>Produce 15–30-second Instagram Reels (e.g., “How our supplements boost energy”).</li>
+        <li>Use high-quality lifestyle images or videos.</li>
+      </ul>
+      <h3>Template: Meta Carousel Ad</h3>
+      <table>
+        <tr><th>Slide</th><th>Content</th><th>Image</th></tr>
+        <tr><td>1</td><td>Struggling to scale your brand?</td><td>CEO at desk</td></tr>
+        <tr><td>2</td><td>Our $4,995 playbook delivers!</td><td>Playbook cover</td></tr>
+        <tr><td>3</td><td>Get our free guide today!</td><td>Happy customer</td></tr>
+        <tr><td>CTA</td><td>Download Now</td><td></td></tr>
+      </table>
+      <h3>Template: Instagram Reel Script</h3>
+      <table>
+        <tr><th>Scene</th><th>Content</th><th>Duration</th></tr>
+        <tr><td>1</td><td>Text: “Low revenue?” CEO looking stressed</td><td>5s</td></tr>
+        <tr><td>2</td><td>Text: “Our playbook scales brands!” Show product</td><td>10s</td></tr>
+        <tr><td>3</td><td>Text: “Free guide!” CTA button</td><td>5s</td></tr>
+      </table>
+      <h3>8.4 Campaign Management</h3>
+      <ul>
+        <li>Budget: $250/month ($60/week) of your $500–$1,000 budget (50% of total).</li>
+        <li>Divide: 60% TOFU (awareness), 30% MOFU (nurturing), 10% BOFU (conversions).</li>
+        <li>Test 5 ad sets with different creatives/audiences.</li>
+        <li>Track ROAS in Meta Ads Manager; scale >3:1 ROAS ads by 20%.</li>
+        <li>Cap spend at 10–15% of revenue to avoid overspending.</li>
+      </ul>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Adjust visuals for your niche (e.g., yoga poses for yoga gear).</p>
+      </div>
+    </div>
+
+    <!-- Pages 48-52: TikTok Ads -->
+    <div class="section">
+      <h2>9. TikTok Ads</h2>
+      <h3>9.1 Why TikTok?</h3>
+      <p>TikTok’s algorithm boosts engagement for wellness brands, driving 3x reach with authentic videos.</p>
+      <h3>9.2 Content Creation</h3>
+      <ul>
+        <li>Create 15-second problem-solution videos (e.g., “Low energy? Try our supplements!”).</li>
+        <li>Use trending audio from TikTok’s Creative Center.</li>
+        <li>Add hashtags: #WellnessMarketing, #EcommerceTips.</li>
+      </ul>
+      <h3>Template: TikTok Video Script</h3>
+      <table>
+        <tr><th>Scene</th><th>Content</th><th>Duration</th></tr>
+        <tr><td>1</td><td>Text: “Struggling to scale?” CEO at desk</td><td>5s</td></tr>
+        <tr><td>2</td><td>Text: “Our $4,995 system works!” Show product</td><td>7s</td></tr>
+        <tr><td>3</td><td>Text: “Free guide!” Link to lead magnet</td><td>3s</td></tr>
+      </table>
+      <h3>9.3 Targeting</h3>
+      <ul>
+        <li>Target wellness enthusiasts, 18–35, in the US.</li>
+        <li>Budget: $50/month ($12/week) of your $500–$1,000 budget.</li>
+        <li>Use interest-based targeting (e.g., fitness, vegan).</li>
+      </ul>
+      <h3>9.4 Optimization</h3>
+      <ul>
+        <li>Track engagement (likes, shares) in TikTok Ads Manager.</li>
+        <li>Scale >2% engagement videos by 20% (e.g., $12 → $14).</li>
+        <li>Pause <1% engagement videos to stay within budget cap.</li>
+      </ul>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Use niche-specific scenarios (e.g., skincare routine for skincare brands).</p>
+      </div>
+    </div>
+
+    <!-- Pages 53-60: Email Marketing -->
+    <div class="section">
+      <h2>10. Email Marketing</h2>
+      <h3>10.1 Why Email?</h3>
+      <p>Email delivers 5x ROI with personalized sequences, nurturing leads to purchase.</p>
+      <h3>10.2 List Building</h3>
+      <ul>
+        <li>Promote the lead magnet (https://pinkwellnessroi.com/lead_magnet.html) via Meta ads ($50/week) and Pinterest pins ($20/week).</li>
+        <li>Use the Netlify landing page to capture emails.</li>
+        <li>Aim for 100–200 new subscribers/month.</li>
+      </ul>
+      <h3>10.3 Sequences</h3>
+      <ul>
+        <li><strong>Welcome (5 emails):</strong> Build trust, deliver lead magnet, offer 10% discount.</li>
+        <li><strong>Nurture (7 emails):</strong> Share tips, customer stories, product highlights.</li>
+        <li><strong>Abandoned Cart (3 emails):</strong> Recover 10% of lost sales with dynamic offers.</li>
+      </ul>
+      <h3>Template: Welcome Email 1</h3>
+      <pre>
+<html>
+<body style="font-family: Arial; color: #333;">
+  <div style="background: #f06292; padding: 20px; text-align: center; color: #fff;">
+    <h2>Welcome to {{YourBrand}}!</h2>
+  </div>
+  <div style="padding: 20px;">
+    <p>Hi {{FirstName}},</p>
+    <p>Thank you for joining! Download your free guide: <a href="https://yourbrand.com/lead_magnet.pdf">Download Now</a>.</p>
+    <p>Stay tuned for tips and a 10% discount!</p>
+    <p>Best, {{YourBrand}} Team</p>
+  </div>
+</body>
+</html>
+      </pre>
+      <h3>Template: Abandoned Cart Email 1</h3>
+      <pre>
+<html>
+<body style="font-family: Arial; color: #333;">
+  <div style="background: #f06292; padding: 20px; text-align: center; color: #fff;">
+    <h2>Forgot Something?</h2>
+  </div>
+  <div style="padding: 20px;">
+    <p>Hi {{FirstName}},</p>
+    <p>Your items are waiting! Complete your order: <a href="https://yourbrand.com/cart">Finish Checkout</a>.</p>
+    <p>Use code CART10 for 10% off.</p>
+    <p>Best, {{YourBrand}} Team</p>
+  </div>
+</body>
+</html>
+      </pre>
+      <h3>10.4 Automation</h3>
+      <ul>
+        <li>Log into MailerLite (mailerlite.com) and create workflows.</li>
+        <li>Set triggers: form submission (Welcome), cart abandonment (Abandoned Cart), purchase (Nurture).</li>
+        <li>Use merge tags (e.g., {{FirstName}}) for personalization.</li>
+        <li>Test emails on mobile/desktop for responsiveness.</li>
+        <li>Monitor open rates (target 30%) and click-through rates (5%) in MailerLite.</li>
+      </ul>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Edit email visuals in Canva and tailor offers for your niche (e.g., skincare discounts).</p>
+      </div>
+    </div>
+
+    <!-- Pages 61-64: Landing Page Optimization -->
+    <div class="section">
+      <h2>11. Landing Page Optimization</h2>
+      <h3>11.1 Why Landing Pages?</h3>
+      <p>Landing pages convert 10% of visitors into leads with focused CTAs.</p>
+      <h3>11.2 Design</h3>
+      <ul>
+        <li>Use pink (#f06292) and green (#d4edda) branding for consistency.</li>
+        <li>Include a hero section (headline, CTA), MailerLite form, and 2–3 testimonials.</li>
+        <li>Ensure mobile-responsive layout with @media queries.</li>
+      </ul>
+      <h3>11.3 SEO</h3>
+      <ul>
+        <li>Optimize title (<60 characters, e.g., “Wellness Marketing Guide”), meta description (160 characters, e.g., “Free guide to scale your brand!”), and H1.</li>
+        <li>Add schema markup for rich snippets.</li>
+      </ul>
+      <h3>11.4 A/B Testing</h3>
+      <ul>
+        <li>Test headlines (e.g., “Scale Your Brand” vs. “Boost Revenue”).</li>
+        <li>Test button colors (pink vs. green).</li>
+        <li>Use Hotjar to track clicks and scrolls.</li>
+        <li>Aim for 10% lead capture rate.</li>
+      </ul>
+      <h3>Template: Form HTML Snippet</h3>
+      <pre>
+<form action="https://dashboard.mailerlite.com/forms/153205442224325740/share">
+  <input type="email" placeholder="Enter your email" required style="padding: 12px; width: 250px;">
+  <button type="submit" style="background: #f06292; color: #fff; padding: 12px;">Get Free Guide</button>
+</form>
+      </pre>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Update the form URL and add niche-specific testimonials in Canva.</p>
+      </div>
+    </div>
+
+    <!-- Pages 65-69: 6-Month Growth Plan -->
+    <div class="section">
+      <h2>12. 6-Month Growth Plan</h2>
+      <h3>12.1 Why a Growth Plan?</h3>
+      <p>This plan ensures 20–50% revenue growth with structured actions.</p>
+      <h3>12.2 Monthly Breakdown</h3>
+      <ul>
+        <li><strong>Month 1:</strong> Audit performance, set 3 SMART goals, launch Meta Ads ($250/month), submit sitemap.xml.</li>
+        <li><strong>Month 2:</strong> Publish 8 blog posts, identify 30 keywords, set up 5-email Welcome sequence.</li>
+        <li><strong>Month 3:</strong> Launch Pinterest ($50/month) and TikTok ($50/month) ads, optimize 5 keywords for top 20.</li>
+        <li><strong>Month 4:</strong> Scale >4:1 ROAS ads, secure 10 backlinks, publish 8 more blog posts.</li>
+        <li><strong>Month 5:</strong> Test loyalty program (e.g., 10% off repeat purchases), expand product range.</li>
+        <li><strong>Month 6:</strong> Review 30% revenue growth, optimize low-performing channels.</li>
+      </ul>
+      <h3>12.3 Weekly Actions</h3>
+      <ul>
+        <li><strong>Week 1:</strong> Install Google Analytics/Hotjar, set goals, launch Meta Ads ($60/week).</li>
+        <li><strong>Week 2:</strong> Publish 2 blog posts, find 15 keywords, set up MailerLite form.</li>
+        <li><strong>Week 3:</strong> Secure 3 backlinks, launch Pinterest ads ($12/week).</li>
+        <li><strong>Week 4:</strong> Monitor ROAS, optimize 1 blog post, A/B test ad headlines.</li>
+      </ul>
+      <h3>Template: Weekly Action Checklist</h3>
+      <table>
+        <tr><th>Week</th><th>SEO</th><th>Ads</th><th>Email</th></tr>
+        <tr><td>1</td><td>Submit sitemap.xml</td><td>Launch Meta Ads ($60)</td><td>Setup MailerLite form</td></tr>
+        <tr><td>2</td><td>Publish 2 blog posts</td><td>Test 2 ad headlines</td><td>Create Welcome Email 1</td></tr>
+      </table>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Adjust tasks for your niche (e.g., skincare-focused blog posts).</p>
+      </div>
+    </div>
+
+    <!-- Pages 70-73: Tracking & Analytics -->
+    <div class="section">
+      <h2>13. Tracking & Analytics</h2>
+      <h3>13.1 Why Track?</h3>
+      <p>Tracking ensures your $500–$1,000/month ad spend and SEO efforts deliver 4:1 ROAS and 10k visits.</p>
+      <h3>13.2 Tools</h3>
+      <ul>
+        <li><strong>Google Analytics:</strong> Track traffic, conversions (Shopify: Settings > Checkout > Additional Scripts).</li>
+        <li><strong>Google Search Console:</strong> Monitor SEO clicks, rankings.</li>
+        <li><strong>Meta Ads Manager:</strong> Track ROAS, click-through rates.</li>
+        <li><strong>MailerLite:</strong> Track email opens, clicks.</li>
+        <li><strong>Hotjar:</strong> Analyze user behavior (clicks, scrolls).</li>
+      </ul>
+      <h3>13.3 KPI Tracker</h3>
+      <ul>
+        <li>Track: Organic Traffic (10k/month), ROAS (4:1), Conversion Rate (4%), Email Open Rate (30%), Backlinks (10/month).</li>
+        <li>Use formula: ROAS = Revenue / Ad Spend (e.g., $2,000 / $500 = 4:1).</li>
+        <li>Update weekly in Google Sheets.</li>
+      </ul>
+      <h3>Template: KPI Tracker Table</h3>
+      <table>
+        <tr><th>Metric</th><th>Goal</th><th>Current</th><th>Notes</th></tr>
+        <tr><td>Organic Traffic</td><td>10k/month</td><td>5k</td><td>Publish 2 posts/week</td></tr>
+        <tr><td>ROAS</td><td>4:1</td><td>3:1</td><td>Scale Meta Ads</td></tr>
+        <tr><td>Email Open Rate</td><td>30%</td><td>20%</td><td>Add merge tags</td></tr>
+      </table>
+      <h3>13.4 Optimization</h3>
+      <ul>
+        <li>Review KPIs weekly. Pause <2:1 ROAS ads, scale >4:1 ads.</li>
+        <li>Optimize low-ranking blog posts with more keywords or backlinks.</li>
+        <li>Adjust email subject lines for >30% open rates.</li>
+      </ul>
+    </div>
+
+    <!-- Pages 74-77: Implementation Guide -->
+    <div class="section">
+      <h2>14. Implementation Guide</h2>
+      <h3>14.1 Netlify Setup</h3>
+      <ul>
+        <li>Log into Netlify (netlify.com) and select your site (pinkwellnessroi).</li>
+        <li>Drag and drop files: playbook.html, lead_magnet.html, email_swipe.html, ad_scripts.html, landing.html, kpi_tracker.csv.</li>
+        <li>Verify URLs (e.g., https://pinkwellnessroi.com/playbook.html).</li>
+        <li>Enable HTTPS in SSL/TLS settings.</li>
+      </ul>
+      <h3>14.2 MailerLite Setup</h3>
+      <ul>
+        <li>Log into MailerLite (mailerlite.com) and go to Campaigns.</li>
+        <li>Create campaigns using Custom HTML Editor. Copy HTML from email_swipe.html (e.g., welcome1.html).</li>
+        <li>Create workflows with triggers: form submission, purchase, cart abandonment.</li>
+        <li>Test emails for deliverability and responsiveness.</li>
+      </ul>
+      <h3>Template: MailerLite Workflow</h3>
+      <table>
+        <tr><th>Trigger</th><th>Action</th><th>Delay</th></tr>
+        <tr><td>Form Submission</td><td>Send Welcome Email 1</td><td>Immediate</td></tr>
+        <tr><td>Cart Abandonment</td><td>Send Abandoned Cart Email 1</td><td>1 hour</td></tr>
+      </table>
+      <h3>14.3 Canva Customization</h3>
+      <ul>
+        <li>Import PDFs (playbook, lead magnet, email swipe) to Canva (canva.com).</li>
+        <li>Change #f06292 to your brand colors, add logo, update fonts.</li>
+        <li>Export as PDF or images for web use.</li>
+      </ul>
+      <h3>14.4 Solo Support Tips</h3>
+      <ul>
+        <li>Use Gmail filters to organize inquiries to rhina@pinkwellnessroi.com.</li>
+        <li>Create a FAQ page on pinkwellnessroi.com to reduce repetitive questions.</li>
+        <li>Schedule 1-hour support blocks 3x/week to manage client emails.</li>
+      </ul>
+      <div class="customize-note">
+        <p><strong>Tip:</strong> Offer Calendly consultations (https://calendly.com/pinkelitestudio) for complex issues.</p>
+      </div>
+    </div>
+
+    <!-- Pages 78-81: Resources & FAQs -->
+    <div class="section">
+      <h2>15. Resources & FAQs</h2>
+      <h3>15.1 Templates</h3>
+      <ul>
+        <li>Lead Magnet: https://pinkwellnessroi.com/lead_magnet.html</li>
+        <li>Email Swipe File: https://pinkwellnessroi.com/email_swipe.html</li>
+        <li>Ad Scripts: https://pinkwellnessroi.com/ad_scripts.html</li>
+        <li>KPI Tracker: https://pinkwellnessroi.com/kpi_tracker.csv</li>
+        <li>Landing Page: https://pinkwellnessroi.com/landing.html</li>
+      </ul>
+      <h3>15.2 FAQs</h3>
+      <ul>
+        <li><strong>How much should I spend on ads?</strong> Start with $500–$1,000/month (10–15% of revenue), scaling 20% for >4:1 ROAS.</li>
+        <li><strong>How long for SEO results?</strong> Top 10 rankings for 5 keywords and 10k visits in 6 months.</li>
+        <li><strong>Can I customize for my niche?</strong> Yes, edit in Canva or code for supplements, skincare, etc.</li>
+        <li><strong>What if I need help?</strong> Email rhina@pinkwellnessroi.com or book a consultation.</li>
+      </ul>
+      <h3>15.3 Support</h3>
+      <p>Contact Rhina Delgado at <a href="mailto:rhina@pinkwellnessroi.com">rhina@pinkwellnessroi.com</a> or book a free consultation: <a href="https://calendly.com/pinkelitestudio">Schedule Now</a>.</p>
+    </div>
+  </div>
+</body>
+</html>

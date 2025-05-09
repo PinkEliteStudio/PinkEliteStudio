@@ -1,0 +1,485 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Wellness ROI Digital Marketing Agency Setup Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        .container {
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 0 20px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #f06292;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f06292;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #fbcfe8;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        p, li {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        li:before {
+            content: '•';
+            color: #f06292;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .cta a {
+            background-color: #f06292;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        .cta a:hover {
+            background-color: #e91e63;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .step {
+            background-color: #f9fafb;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+                margin: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pink Wellness ROI</h1>
+        <p class="subtitle">High-Ticket Client Acquisition Guide</p>
+
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>Transform Pink Wellness ROI into a premier digital marketing agency for wellness e-commerce brands. With Rhina Delgado’s 7+ years in real estate, networking, and ads, this guide, inspired by Alex Schlinsky’s Prospecting On Demand, provides a roadmap to land high-ticket clients ($3K+/month) who need your AI-driven solutions. No technical skills required—follow this plan to replace your income and scale.</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Craft an Irresistible Agency Model</h2>
+            <h3>1.1 Niche & Positioning</h3>
+            <ul>
+                <li><strong>Niche</strong>: Wellness e-commerce brands with $100K+ revenue (e.g., supplements, yoga gear).</li>
+                <li><strong>USP</strong>: AI-driven marketing guaranteeing 2x ROI, no client tech expertise needed.</li>
+                <li><strong>Model</strong>: Done-For-You services with AI arbitrage and DaaS.</li>
+            </ul>
+            <h3>1.2 Core Services</h3>
+            <ul>
+                <li>AI Arbitrage Marketing: Optimize Meta, Google, Pinterest ads.</li>
+                <li>DaaS Solutions: Real-time insights via Vendasta.</li>
+                <li>High-Ticket Client Acquisition: Land $3K+ clients.</li>
+                <li>SEO & Content: Boost visibility with blogs/videos.</li>
+            </ul>
+            <h3>1.3 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Search LinkedIn for “wellness CEO” and Shopify for brands with $100K+ revenue.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: List pain points (e.g., high ad costs) in a Google Doc, note AI solutions.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Set pricing at $3K-$5K/month, emphasizing 2x ROI.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 4</strong>: Create a Canva pitch deck with niche, USP, services.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 5</strong>: Get feedback on your pitch from a trusted contact.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Launch a Premium Website</h2>
+            <h3>2.1 Branding</h3>
+            <ul>
+                <li><strong>Name</strong>: Pink Wellness ROI.</li>
+                <li><strong>Visuals</strong>: Pink (#f06292), light green (#d4edda).</li>
+            </ul>
+            <h3>2.2 Website Deployment</h3>
+            <ul>
+                <li>Update pinkwellnessroi.com with hero, lead magnet, services.</li>
+                <li>Host on Netlify for free.</li>
+            </ul>
+            <h3>2.3 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Log in to Netlify (team: pinkelitestudio), select pinkwellnessroi.com, go to “Deploys.”</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Upload files: index.html, thank-you.html, guide.html.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Verify domain in Netlify’s DNS panel.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 4</strong>: Test site at pinkwellnessroi.com for form functionality.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Leverage Vendasta for DaaS</h2>
+            <ul>
+                <li><strong>Purpose</strong>: White-label SEO audits, analytics, reputation management.</li>
+                <li><strong>Benefits</strong>: No tech skills; resell to clients.</li>
+                <li><strong>Pricing</strong>: $500-$1,500/month, bundled.</li>
+            </ul>
+            <h3>3.1 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Sign up for a free trial at vendasta.com.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: In “Branding,” set pink/green colors.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Create a sample Snapshot Report.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 4</strong>: Watch 3 Vendasta tutorials (help section).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 5</strong>: Price DaaS at $500/month, scale to $1,500.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Build an AI Arbitrage System</h2>
+            <h3>4.1 Tools</h3>
+            <ul>
+                <li>Smartly.io: Automates ad testing ($500-$1,000/month).</li>
+                <li>AdCreative.ai: Generates ad copy/visuals ($29-$149/month).</li>
+                <li>Google Ads AI: Automated bidding (free).</li>
+            </ul>
+            <h3>4.2 Delivery Process</h3>
+            <ul>
+                <li>Onboard with assets/goals.</li>
+                <li>Launch AI campaigns.</li>
+                <li>Monitor via Vendasta.</li>
+                <li>Deliver reports.</li>
+            </ul>
+            <h3>4.3 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Sign up for Smartly.io, AdCreative.ai trials.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Create Google Ads account, enable “Maximize Conversions.”</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Create Google Form for assets (logos, images).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 4</strong>: In AdCreative.ai, upload assets, select “Wellness,” generate 5 creatives.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 5</strong>: In Smartly.io, connect Meta/Google, launch campaigns.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 6</strong>: Check Vendasta analytics weekly.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 7</strong>: Email Vendasta reports monthly.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Land High-Ticket Clients (Schlinsky’s Method)</h2>
+            <h3>5.1 Acquisition Strategies</h3>
+            <ul>
+                <li><strong>Lead Magnet</strong>: Offer this guide to capture leads.</li>
+                <li><strong>High-Volume Outreach</strong>: Send 50 LinkedIn messages/day.</li>
+                <li><strong>Refined Offer</strong>: Guarantee 2x ROI in 90 days.</li>
+                <li><strong>Case Studies</strong>: Showcase wins (e.g., “Doubled [Client]’s Sales”).</li>
+                <li><strong>One-Call Close</strong>: Use Schlinsky’s 4 W’s: Where now? Where to? Obstacle? Urgency?</li>
+            </ul>
+            <h3>5.2 Client Qualification</h3>
+            <ul>
+                <li>Target $100K+ revenue, $10K+/month ad budgets.</li>
+                <li>Use website form to filter leads.</li>
+            </ul>
+            <h3>5.3 Step-by-Step Roadmap</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Sign up for LinkedIn Sales Navigator ($79/month).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Search “wellness CEO,” filter for $100K+ revenue.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Send 50 messages/day: “Hi [Name], I doubled [Client]’s ROI with AI ads. Free audit?”</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 4</strong>: Track responses in Google Sheet (Name, Brand, Date, Status).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 5</strong>: Set up Calendly (calendly.com/pinkelitestudio).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 6</strong>: Present Vendasta audits, use 4 W’s, offer 2x ROI.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 7</strong>: Create Canva case study for first win.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 8</strong>: Follow up with non-responders via MailerLite after 3 days.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. Deliver Premium Services</h2>
+            <h3>6.1 Client Pain Points</h3>
+            <ul>
+                <li>Low traffic/sales.</li>
+                <li>High ad costs.</li>
+                <li>No data insights.</li>
+            </ul>
+            <h3>6.2 Service Delivery</h3>
+            <ul>
+                <li>Onboard with Google Forms.</li>
+                <li>Execute AI ads, SEO.</li>
+                <li>Outsource content ($50-$100/post).</li>
+                <li>Deliver reports, Zoom reviews.</li>
+            </ul>
+            <h3>6.3 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Create Google Form for onboarding (brand, goals, budget).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Use Vendasta SEO for keywords (e.g., “vegan collagen”).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Hire Upwork freelancer for 2 posts/month ($100/post).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 4</strong>: Schedule monthly Zoom calls.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 5</strong>: Email reports with 30-day guarantee.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>7. Build a Competitive Moat</h2>
+            <ul>
+                <li><strong>Authority</strong>: Share case studies on LinkedIn.</li>
+                <li><strong>System</strong>: Brand as “Pink ROI Formula.”</li>
+                <li><strong>Community</strong>: Launch Slack group for CEOs.</li>
+            </ul>
+            <h3>7.1 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Create Canva case study (“Doubled [Client]’s ROI”).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Post weekly LinkedIn tips with wellness hashtags.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Create Slack workspace, invite 5 CEOs.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>8. Scale Your Agency</h2>
+            <h3>8.1 Growth Tactics</h3>
+            <ul>
+                <li>Add video marketing, reputation management.</li>
+                <li>Hire freelancers, then staff.</li>
+                <li>Increase retainers to $5K-$7K.</li>
+                <li>Automate with Zapier, MailerLite ($9/month).</li>
+            </ul>
+            <h3>8.2 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Add Vendasta video tool ($200/month).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Hire Upwork freelancer ($20/hour).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Sign up for MailerLite, create welcome email.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 4</strong>: Connect form to MailerLite via Zapier.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>9. Replace Income & Build Wealth</h2>
+            <h3>9.1 Milestones</h3>
+            <ul>
+                <li><strong>Months 1-2</strong>: 1 client ($3K).</li>
+                <li><strong>Months 3-4</strong>: 2-3 clients ($6K-$9K).</li>
+                <li><strong>Months 6-12</strong>: 5-10 clients ($15K-$30K).</li>
+            </ul>
+            <h3>9.2 Wealth Strategies</h3>
+            <ul>
+                <li>Recurring revenue.</li>
+                <li>Agency sale ($300K-$500K).</li>
+                <li>Reinvest in real estate.</li>
+            </ul>
+            <h3>9.3 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Aim for $9K/month in 6 months.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Track revenue in Google Sheet.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Consult financial advisor.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>10. Troubleshoot & Optimize</h2>
+            <h3>10.1 Challenges</h3>
+            <ul>
+                <li><strong>No Leads</strong>: Increase outreach, run Meta ads ($100).</li>
+                <li><strong>Churn</strong>: Offer guarantees.</li>
+                <li><strong>Tools</strong>: Use Vendasta support.</li>
+            </ul>
+            <h3>10.2 Optimization</h3>
+            <ul>
+                <li>A/B test creatives.</li>
+                <li>Collect feedback.</li>
+                <li>Track KPIs.</li>
+            </ul>
+            <h3>10.3 Step-by-Step Setup</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Create feedback Google Form.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Run A/B tests in Smartly.io.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Review Vendasta KPIs weekly.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Next Steps</h2>
+            <ul>
+                <li>Deploy website on Netlify.</li>
+                <li>Sign up for Vendasta, Smartly.io.</li>
+                <li>Send 50 LinkedIn messages daily.</li>
+                <li>Book a strategy call in 14 days.</li>
+            </ul>
+            <h3>Action Plan</h3>
+            <div class="step">
+                <p><strong>Step 1</strong>: Save guide as PDF, upload to Netlify.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2</strong>: Test form, email delivery.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3</strong>: Schedule 1 hour daily for outreach.</p>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="https://calendly.com/pinkelitestudio">Book Your Free Strategy Call</a>
+        </div>
+    </div>
+</body>
+</html>

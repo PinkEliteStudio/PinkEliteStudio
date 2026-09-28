@@ -1,4 +1,4 @@
-# Made in His Image: Bible Truth Coloring Book (ages 5-10)
+# Made in His Image, by Rhina Jasmyn
 
 30 original designs following the seasons (winter, spring, summer, fall). Each page has:
 a Bible truth in hollow letters to color, a verse from the World English Bible (public
@@ -14,7 +14,7 @@ Every design is printed on one side only, with a blank back page.
 | `content.py` | Title, author name, truths, verses, scenes: edit here |
 
 ## Steps
-1. Open `content.py` and change `"author": "Your Name Here"` to your pen or brand name.
+1. Title, subtitle, tagline and author name are in `content.py` if you want to change them.
 2. Make each picture using its prompt in `ART_PROMPTS.md`. Check hands, feet, eyes and faces.
 3. Save the images as `art/01.png` ... `art/30.png` and the color cover picture as `art/cover.png`.
 4. Rebuild: `python3 build_book.py`. The script converts art to pure black & white and warns

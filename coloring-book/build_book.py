@@ -209,11 +209,11 @@ def title_page(c):
     x0, x1 = margins(1)
     cx = (x0 + x1) / 2
     y = outline_text(c, [BOOK["title"]], "Display", 50, cx, H - 2.6 * inch, stroke=2)
-    c.setFont("Body", 17)
-    for i, l in enumerate(wrap(BOOK["subtitle"], "Body", 17, x1 - x0 - 60)):
-        c.drawCentredString(cx, y - 30 - i * 22, l)
-    c.setFont("BodyBold", 14)
-    c.drawCentredString(cx, y - 100, BOOK["ages"])
+    c.setFont("Body", 16)
+    for i, l in enumerate(wrap(BOOK["subtitle"], "Body", 16, x1 - x0 - 60)):
+        c.drawCentredString(cx, y - 30 - i * 21, l)
+    c.setFont("Hand", 18)
+    c.drawCentredString(cx, y - 110, pretty(BOOK["tagline"]))
     for k, s in enumerate(["winter", "spring", "summer", "fall"]):
         icon(c, s, cx + (k - 1.5) * 70, H / 2 - 40, 18)
     c.setFont("Body", 14)
@@ -223,8 +223,7 @@ def title_page(c):
 
 def copyright_page(c):
     x0, x1 = margins(2)
-    lines = [
-        f"{BOOK['title']}: {BOOK['subtitle']}",
+    lines = wrap(f"{BOOK['title']}: {BOOK['subtitle']}", "Body", 9.5, x1 - x0) + [
         f"Copyright © {BOOK['year']} {BOOK['author']}. All rights reserved.",
         "",
         "No part of this book may be reproduced without written permission from the",
@@ -414,12 +413,14 @@ def build_cover(pages):
         c.setFont("Display", tsize)
         c.drawCentredString(fcx, y - tsize * 0.8, l)
         y -= tsize * 1.05
-    c.setFont("BodyBold", 17)
-    for l in wrap(BOOK["subtitle"], "BodyBold", 17, fx1 - fx0 - 40):
-        c.drawCentredString(fcx, y - 22, l)
-        y -= 22
+    c.setFont("BodyBold", 15)
+    for l in wrap(BOOK["subtitle"], "BodyBold", 15, fx1 - fx0 - 40):
+        c.drawCentredString(fcx, y - 20, l)
+        y -= 20
+    c.setFont("Hand", 20)
+    c.drawCentredString(fcx, 0.95 * inch, pretty(BOOK["tagline"]))
     c.setFont("BodyBold", 16)
-    c.drawCentredString(fcx, 0.95 * inch, f"30 Bible Truth Coloring Pages  •  {BOOK['ages']}")
+    c.drawCentredString(fcx, 0.6 * inch, "by " + BOOK["author"])
 
     # back cover
     bx0, bx1 = (bleed * inch) + safe, (bleed + 8.5) * inch - safe
@@ -438,7 +439,7 @@ def build_cover(pages):
         y -= 20
     y -= 16
     for b in ["30 single-sided designs, so markers won't bleed onto the next picture",
-              "Big 8.5 x 11 inch pages",
+              "Big 8.5 x 11 inch pages for ages 5-10",
               "Girls and boys at school, in the park and around the neighborhood",
               "Space for notes on every page",
               "A “this book belongs to” page and a completion certificate"]:

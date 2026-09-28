@@ -8,9 +8,11 @@ and the scene used for the art prompt.
 
 BOOK = {
     "title": "Made in His Image",
-    "subtitle": "A Bible Truth Coloring Book for Brave, Confident Kids",
+    "subtitle": "A Bible Verse Coloring Book for Kids Ages 5-10 to Grow Brave, "
+                "Confident Girls & Boys Who Know They Are Loved by God",
+    "tagline": "30 faith-filled pages of God's truth for every season",
     "ages": "Ages 5-10",
-    "author": "Your Name Here",          # <-- change to your author / brand name
+    "author": "Rhina Jasmyn",
     "year": "2026",
 }
 

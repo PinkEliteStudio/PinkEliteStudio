@@ -55,3 +55,30 @@ Connex or NextLM (their systems are private; we only match what they do).
 - **Next:** rewrite all 3 starter email templates to follow the WHEN-never-IF rule. The template
   "Would your spouse have to move?" still says "If something happened to you tomorrow...".
 - Pending: write the AI caller script (pain first, then solution) if it isn't done yet.
+
+## Current phase: road to running lead ads
+The CRM already has: pipeline, Today view, tasks, email campaigns, click tracking, forms, a lead
+timeline and source Reports. Lead stages include Hot and Nurture. The user has (or plans) setters.
+
+Road (in order):
+1. Buy the domain **faithshieldlife.com** through Netlify (Domains → Add or register domain).
+   Status unknown: the key rotation (Tasks 8–9) interrupted this step. Confirm with the user.
+2. Connect the domain to Resend so email comes from an @faithshieldlife.com address.
+3. Put the quote form on the new domain. Tag the links for Instagram and TikTok (UTM) so Reports
+   shows which app brings appointments.
+4. Build speed-to-lead (below).
+5. Set up the Instagram professional account and Meta ad account, film 3 short videos, and launch
+   at $10/day.
+
+CRM features to build (ideas taken from HubSpot, Salesforce, kvCORE and BoomTown), in order:
+1. **Speed-to-lead:** within seconds of a new ad lead, text the user's phone with the lead's name
+   and a tap-to-call link. Put the lead at the top of Today with a 5-minute timer. Build this
+   before the first ad goes live.
+2. **Lead scoring:** quote form +30, clicked an email +15, spoke with them +20, wrong number −50.
+   The setter always calls the highest score first.
+3. **Duplicate check:** merge duplicate leads from forms and lists instead of calling them twice.
+4. **Own booking page:** leads pick a Zoom time, and the appointment lands in the CRM and Pipeline
+   automatically. This replaces Calendly.
+5. **Smart re-engage:** when a Nurture lead clicks an email, they turn Hot and the user gets an alert.
+6. **Round-robin assignment:** split new leads fairly once there are 2 or more setters.
+7. **Birthday, policy anniversary and referral messages:** planned for Phase 9.

@@ -51,7 +51,7 @@ Connex or NextLM (their systems are private; we only match what they do).
 - Tasks 2–7: Vapi account/number setup and later steps. Covered in the original chat; details not
   recorded here.
 - Task 8: rotated the Resend API key; a test email arrived in the Inbox with the pink design. Done.
-- Task 9: delete the old Resend key and keep only "DreamTeam CRM". In progress.
+- Task 9: deleted the old Resend key; only "DreamTeam CRM" remains. Done.
 - **Next:** rewrite all 3 starter email templates to follow the WHEN-never-IF rule. The template
   "Would your spouse have to move?" still says "If something happened to you tomorrow...".
 - Pending: write the AI caller script (pain first, then solution) if it isn't done yet.
